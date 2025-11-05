@@ -580,7 +580,7 @@ if (empty($language)) {
     </div>
 
 
-    <? $this->load->view("components/footer"); ?>
+    <?php $this->load->view("components/footer"); ?>
     <!-- Modal -->
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
