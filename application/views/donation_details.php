@@ -1,0 +1,180 @@
+<?php
+$CI = &get_instance();
+$language_id = $CI->session->userdata('language_id') ?? 1;
+?>
+
+<style>
+    /* Custom Styling */
+    .custom-card {
+        border-radius: 12px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .custom-card-header {
+        background: linear-gradient(135deg, #21559b, #3a76c8);
+        color: white;
+        font-size: 1.2rem;
+        padding: 15px;
+        text-align: center;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+    }
+
+    .summary-table th,
+    .summary-table td {
+        text-align: center;
+        vertical-align: middle;
+        padding: 12px;
+    }
+
+    .total-text {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #c9302c;
+    }
+
+    .donor-form-container {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .btn-custom {
+        font-size: 0.9rem;
+        font-weight: bold;
+        padding: 8px 20px;
+        border-radius: 6px;
+        background-color: #28a745;
+        border: none;
+        transition: 0.3s;
+    }
+
+    .btn-custom:hover {
+        background-color: #218838;
+    }
+
+    .icon {
+        margin-right: 8px;
+        color: #007bff;
+    }
+
+    .submit-btn-container {
+        text-align: right;
+        margin-top: 15px;
+    }
+</style>
+
+<div class="container mt-4">
+
+    <!-- Donation Summary Card -->
+    <div class="card custom-card">
+        <div class="custom-card-header">
+            <i class="fas fa-donate"></i>
+            <?php echo ($language_id == 1) ? "Your Donation Details" : "તમારા દાનની વિગતો"; ?>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered summary-table">
+                <thead class="thead-light">
+                    <tr>
+                        <th><?php echo ($language_id == 1) ? "Product" : "ઉત્પાદન"; ?></th>
+                        <th><?php echo ($language_id == 1) ? "Sub Total" : "કુલ રકમ"; ?></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><?php echo $name . " * " . $count; ?></td>
+                        <td>₹ <?= $total; ?></td>
+                    </tr>
+                    <!-- <tr>
+                        <td><strong>< echo ($language_id == 1) ? "Sub Total" : "પેટા કુલ"; ?></strong></td>
+                        <td><strong>₹ < number_format($total, 2); ?></strong></td>
+                    </tr> -->
+                    <tr>
+                        <td class="total-text"><strong><?php echo ($language_id == 1) ? "Total" : "કુલ રકમ"; ?></strong>
+                        </td>
+                        <td class="total-text"><strong>₹ <?= number_format($total, 2); ?></strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Donor Form Card -->
+    <div class="card custom-card donor-form-container">
+        <div class="custom-card-header">
+            <i class="fas fa-user"></i>
+            <?php echo ($language_id == 1) ? "Donor Information Form" : "દાતાની માહિતી ફોર્મ"; ?>
+        </div>
+        <div class="card-body">
+            <form action="<?= base_url("Sardardham/add_donor"); ?>" method="post">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label><i class="fas fa-user icon"></i>
+                                <?php echo ($language_id == 1) ? 'Full Name of Donor' : 'દાતાનું સંપૂર્ણ નામ'; ?>
+                            </label>
+                            <input type="hidden" name="no_of_people" value="<?= $count; ?>">
+                            <input type="hidden" name="amount" value="<?= $total; ?>">
+                            <input type="text" name="name" class="form-control"
+                                placeholder="<?php echo ($language_id == 1) ? 'Enter your name' : 'તમારું નામ લખો'; ?>"
+                                autocomplete="off" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label><i class="fas fa-map-marker-alt icon"></i>
+                                <?php echo ($language_id == 1) ? 'Full Address of Donor' : 'દાતાનું પૂરું સરનામું'; ?>
+                            </label>
+                            <textarea name="address" class="form-control" rows="3"
+                                placeholder="<?php echo ($language_id == 1) ? 'Enter your address' : 'તમારું સરનામું લખો'; ?>"
+                                autocomplete="off" required></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label><i class="fab fa-whatsapp icon"></i>
+                                <?php echo ($language_id == 1) ? 'WhatsApp Number' : 'વોટ્સએપ નંબર'; ?>
+                            </label>
+                            <input type="tel" name="whats_app_no" class="form-control" pattern="[0-9]{10}"
+                                placeholder="<?php echo ($language_id == 1) ? 'Enter your WhatsApp number' : 'વોટ્સએપ નંબર લખો'; ?>"
+                                autocomplete="off" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label><i class="fas fa-id-card icon"></i>
+                                <?php echo ($language_id == 1) ? 'PAN Card Number' : 'પાન કાર્ડ નંબર'; ?>
+                            </label>
+                            <input type="text" name="pan_no" class="form-control" maxlength="10"
+                                placeholder="<?php echo ($language_id == 1) ? 'Enter PAN card number' : 'પાન કાર્ડ નંબર લખો'; ?>"
+                                autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label><i class="fas fa-fingerprint icon"></i>
+                                <?php echo ($language_id == 1) ? 'Aadhaar Card Number' : 'આધાર કાર્ડ નંબર'; ?>
+                            </label>
+                            <input type="text" name="aadhaar_no" class="form-control" maxlength="12"
+                                placeholder="<?php echo ($language_id == 1) ? 'Enter Aadhaar number' : 'આધાર નંબર લખો'; ?>"
+                                autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button at the End of Form -->
+                <div class="submit-btn-container">
+                    <button type="submit" class="btn btn-custom">
+                        <?php echo ($language_id == 1) ? 'Submit' : 'સબમિટ કરો'; ?>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

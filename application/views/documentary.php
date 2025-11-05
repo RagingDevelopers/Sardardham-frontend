@@ -1,0 +1,179 @@
+<style>
+  :root {
+    --background-dark: #2d3548;
+    --text-light: rgba(255, 255, 255, 0.6);
+    --text-lighter: rgba(255, 255, 255, 0.9);
+    --spacing-s: 8px;
+    --spacing-m: 16px;
+    --spacing-l: 24px;
+    --spacing-xl: 32px;
+    --spacing-xxl: 64px;
+    --width-container: 1200px;
+  }
+
+  .hero-section {
+    align-items: flex-start;
+    /*background-image: linear-gradient(15deg, #0f4667 0%, #2a6973 150%);*/
+    display: flex;
+    min-height: auto;
+    justify-content: center;
+    padding: var(--spacing-xxl) var(--spacing-l);
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-column-gap: var(--spacing-l);
+    grid-row-gap: var(--spacing-l);
+    max-width: var(--width-container);
+    width: 100%;
+  }
+
+  @media(min-width: 540px) {
+    .card-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media(min-width: 960px) {
+    .card-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .card {
+    list-style: none;
+    position: relative;
+  }
+
+  .card:before {
+    content: '';
+    display: block;
+    /* padding-bottom: 150%; */
+    width: 100%;
+  }
+
+  .card__background {
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--spacing-l);
+    bottom: 0;
+    filter: brightness(0.75) saturate(1.2) contrast(0.85);
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform-origin: center;
+    trsnsform: scale(1) translateZ(0);
+    transition:
+      filter 200ms linear,
+      transform 200ms linear;
+  }
+
+  .card:hover .card__background {
+    transform: scale(1.05) translateZ(0);
+  }
+
+  .card-grid:hover>.card:not(:hover) .card__background {
+    filter: brightness(0.9) saturate(0) contrast(0.9) blur(4px);
+  }
+
+  .card__content {
+    left: 0;
+    padding: var(--spacing-l);
+    position: absolute;
+    top: 80%;
+  }
+
+  .card__category {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-s);
+    text-transform: uppercase;
+  }
+
+  .card__heading {
+    color: var(--text-lighter);
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+    line-height: 1.4;
+    word-spacing: 100vw;
+  }
+
+  .nav-pills .nav-link.active,
+  .nav-pills .show>.nav-link {
+    background: linear-gradient(135deg, #ee0979 0, #ff6a00 100%);
+
+    padding: 10px 28px;
+  }
+
+  .nav-pills .nav-link {
+    color: white;
+    background: -webkit-gradient(linear, left top, right top, from(#0e9ea8), to(#43e794));
+    background: linear-gradient(90deg, #0e9ea8 0, #43e794 100%);
+    padding: 10px 28px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .inner-page {
+      font-size: 29px;
+      padding: 2rem !important;
+    }
+  }
+</style>
+<div class="inner-page fw-bold text-center" style="background-color: #E1E1E1;color: #21559B;"><span
+    class=""><?= lang('documentary') ?></span>
+</div>
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+
+<div class="container">
+  <div class="section-title pt-4 mb-0">
+    <h2><b><?= lang('documentary') ?></b></h2>
+    <div class="bar"></div>
+  </div>
+  <ul class="nav nav-pills mb-3 gap-3 justify-content-center" id="pills-tab" role="tablist">
+    <?php for ($x = 0; $x < count($documentary_category); $x++) { ?>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link  category-btn <?php if ($x == 0) {
+          echo 'active';
+        } ?>" data-id="<?= $documentary_category[$x]['id']; ?>" id="pill-<?= $documentary_category[$x]['name']; ?>"
+          data-id="<?= $documentary_category[$x]['name']; ?>" data-bs-toggle="pill"
+          data-bs-target="#tab-<?= $documentary_category[$x]['name']; ?>" type="button" role="tab"
+          aria-controls="<?= $documentary_category[$x]['name']; ?>" aria-selected="<?php if ($x == 0) {
+              echo 'true';
+            } else {
+              echo 'false';
+            } ?>"><?= $documentary_category[$x]['name']; ?></button>
+      </li>
+    <?php } ?>
+  </ul>
+  <div class="documentary-ajax">
+  </div>
+</div>
+
+<script>
+  $(".category-btn").click(function () {
+    var currentBtn = $(this);
+    var { id } = currentBtn.data();
+    var loader = $(".image-loader");
+    loader.removeClass("d-none");
+    var id = '#tab-' + $(this).data('id');
+    $.ajax({
+      url: "<?= base_url('update/getDocumentaryByCategory'); ?>",
+      type: 'GET',
+      data: ({
+        id: currentBtn.data("id"),
+      }),
+      success: function (response) {
+        $('.documentary-ajax').html(response);
+        AOS.init();
+        $($(id).find('ul').children('li')[0]).trigger('click');
+      }
+    }).always(() => {
+      loader.addClass("d-none");
+    });
+  });
+  $(".nav-link").eq(0).click();
+</script>
