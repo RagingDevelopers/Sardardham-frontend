@@ -30,6 +30,8 @@ class Team extends CI_Controller
             $data['guj_name'] = $this->security->xss_clean($this->input->post('guj_name'));
             $data['eng_designation'] = $this->security->xss_clean($this->input->post('eng_designation'));
             $data['guj_designation'] = $this->security->xss_clean($this->input->post('guj_designation'));
+            $data['eng_sub_designation'] = $this->security->xss_clean($this->input->post('eng_sub_designation'));
+            $data['guj_sub_designation'] = $this->security->xss_clean($this->input->post('guj_sub_designation'));
             $data['sequence'] = $this->security->xss_clean($this->input->post('sequence'));
             if (!empty($_FILES['photo']['name'])) {
                 $file_ext = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
@@ -79,6 +81,8 @@ class Team extends CI_Controller
             $data['guj_name'] = $this->security->xss_clean($this->input->post('guj_name'));
             $data['eng_designation'] = $this->security->xss_clean($this->input->post('eng_designation'));
             $data['guj_designation'] = $this->security->xss_clean($this->input->post('guj_designation'));
+            $data['eng_sub_designation'] = $this->security->xss_clean($this->input->post('eng_sub_designation'));
+            $data['guj_sub_designation'] = $this->security->xss_clean($this->input->post('guj_sub_designation'));
             $data['sequence'] = $this->security->xss_clean($this->input->post('sequence'));
             if (!empty($_FILES['photo']['name'])) {
                 $row_data = $this->db->get_where('team', array('id' => $param))->row('photo');
@@ -192,6 +196,8 @@ class Team extends CI_Controller
             $row_data[] = $row['guj_name'];
             $row_data[] = $row['eng_designation']; // Title
             $row_data[] = $row['guj_designation'];
+            $row_data[] = @$row['eng_sub_designation'];
+            $row_data[] = @$row['guj_sub_designation'];
             $row_data[] = $row['sequence'];
             $row_data[] = '<a href="' . base_url('upload/' . $row['photo']) . '" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>'; // Photo
 

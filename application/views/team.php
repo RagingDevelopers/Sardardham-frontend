@@ -7,7 +7,7 @@
   }
 
   .our-team {
-    padding: 30px 0 40px;
+    padding: 20px 0 10px;
     margin-bottom: 30px;
     background-color: #f0f7f4;
     /* Softer color for a more modern look */
@@ -15,7 +15,7 @@
     overflow: hidden;
     position: relative;
     max-height: 344px;
-    min-height: 343px;
+    /* min-height: 343px; */
     border-radius: 12px;
     transition: all 0.4s linear 0s;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -155,7 +155,9 @@
     </div>
   </div>
   <div class="row">
-    <?php for ($x = 0; $x < count($team); $x++) { ?>
+    <?php 
+    $countTeam = count($team);
+    for ($x = 0; $x < $countTeam; $x++) { ?>
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
         <div class="our-team">
           <div class="picture mb-4">
@@ -164,6 +166,7 @@
           <div class="team-content">
             <span class="name h5"><?= $team[$x]['name']; ?></span>
             <span class="title h6 p-1"><?= $team[$x]['designation']; ?></span>
+            <span class="title h6 p-1"><?= $team[$x]['sub_designation']; ?></span>
           </div>
         </div>
       </div>

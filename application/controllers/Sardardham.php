@@ -38,7 +38,7 @@ class Sardardham extends MY_Controller
     {
         $page_data['page_name'] = "team";
         $page_data['page_title'] = lang('team_sardardham');
-        $page_data['team'] = $this->db->select(["*", langSelect('name'), langSelect("designation")])->order_by("sequence", "ASC")->get('team')->result_array();
+        $page_data['team'] = $this->db->select(["*", langSelect('name'), langSelect("designation"), langSelect("sub_designation")])->order_by("sequence", "ASC")->get('team')->result_array();
         $this->load->view('common', $page_data);
     }
 

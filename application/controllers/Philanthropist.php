@@ -15,6 +15,7 @@ class Philanthropist extends MY_Controller
 
         $page_data['categories'] = $this->db
             ->select(["id", langSelect("name")])
+            ->order_by("short_order", "ASC")
             ->get("category")
             ->result_array();
 
@@ -228,7 +229,6 @@ class Philanthropist extends MY_Controller
                                 <h5><?= $philanthropist['name']; ?></h5>
                                 <p><?= $philanthropist['company'] ?? ''; ?></p>
                                 <p><?= $philanthropist['city'] ?? ''; ?></p>
-                                <p><?= $philanthropist['zone'] ?? ''; ?></p>
                             </div>
                         </div>
                     </div>

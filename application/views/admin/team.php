@@ -45,6 +45,20 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Sub designation in English <span class="text-danger">*</span></label>
+                                <input type="text" name="eng_sub_designation" value="<?php if(isset($row_data)){ echo $row_data['eng_sub_designation']; } ?>" class="form-control"  placeholder="Enter sub designation in English" >
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Sub designation in Gujarati <span class="text-danger">*</span></label>
+                                <input type="text" name="guj_sub_designation" value="<?php if(isset($row_data)){ echo $row_data['guj_sub_designation']; } ?>" class="form-control"  placeholder="Enter sub designation in Gujarati" >
+                            </div>
+                        </div>
+                    </div>
                     
                     <div class="row">
                         <div class="col-md-6">
@@ -116,6 +130,8 @@ $(document).ready(function() {
             { "title": "Gujarati Name" },
             { "title": "English Designation" },
             { "title": "Gujarati Designation" },
+            { "title": "English Sub Designation" },
+            { "title": "Gujarati Sub Designation" },
             { "title": "Sequence" },
             { "title": "Photo", "orderable": false },
         ]

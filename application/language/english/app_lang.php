@@ -15,7 +15,7 @@ $lang['skill_development'] = 'Skill Development';
 // home Language
 
 $lang['home_title'] = "Home";
-$lang['five_goals'] = "Our Goals";
+$lang['five_goals'] = "OUR GOALS";
 $lang['sardardham_institution'] = "Sardardham – Institution";
 $lang['global_patidar_business_summit'] = "Global Patidar Business Summit";
 $lang['global_patidar_business_organisation'] = "Global Patidar Business Organisation";
@@ -30,7 +30,7 @@ $lang['ek_vichar_magazine'] = "Sardardham – Ek Vichar Magazine";
 $lang['news_updates'] = "News & Updates";
 $lang['requirements'] = "Requirements";
 $lang['gallery'] = "MEDIA";
-$lang['connect'] = "Contact Us";
+$lang['connect'] = "CONTACT US";
 $lang['e_notice_board'] = "E-notice Board";
 $lang['whats_next'] = "What's next";
 
@@ -132,8 +132,5 @@ $lang['go_to_website'] = "Go to Website";
 $lang['current'] = "Current";
 $lang['archive'] = "Archive";
 
-$lang['thought_title'] = "Empowering Community for Nation Building";
-$lang['mission_vision_goals_title'] = "Educate. Empower. Unite. - Building the Nation.";
-$lang['team_title'] = "Leadership with Accountability";
-$lang['philanthropist_title'] = "Generosity that Builds the Nation";
 
+$lang['building_projects'] = "Building Projects (Hostels & Institutes)";

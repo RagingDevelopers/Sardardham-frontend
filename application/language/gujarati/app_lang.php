@@ -135,3 +135,5 @@ $lang['thought_title'] = "રાષ્ટ્ર નિર્માણ માટ�
 $lang['mission_vision_goals_title'] = "";
 $lang['team_title'] = "";
 $lang['philanthropist_title'] = "";
+
+$lang['building_projects'] = "બિલ્ડિંગ પ્રોજેક્ટ્સ (હોસ્ટેલ્સ & સંસ્થાઓ)";

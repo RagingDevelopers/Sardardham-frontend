@@ -168,8 +168,13 @@
             <div class="col mb-4">
                 <h4><?= lang('five_goals') ?></h4>
                 <ul>
+                    <li>
+                        <a href="<?= base_url('our-goals/building-project') ?>">
+                            <?= lang('building_projects') ?>
+                        </a>
+                    </li>
                     <?php
-                    foreach ($GLOBALS['goals'] as $goal) { ?>
+                    foreach ( $GLOBALS['goals'] as $goal ) { ?>
                         <li>
                             <a href="<?= base_url("home/goals/" . urlencode($goal->slug)) ?>">
                                 <?= $goal->title ?>
@@ -332,7 +337,7 @@
             <div class="row">
                 <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center">
                     <div class="footerNoteSec">
-                        <p>&copy; Copyright <?php echo date("Y"); ?> Sardardham.All Rights Reserved.</p>
+                        <p>&copy; Copyright <?php echo date("Y"); ?> Sardardham. All Rights Reserved.</p>
                         <?php
                         $last_updated = $this->db->where('id', 1)->get('setting')->row()->last_updated;
                         if (empty($last_updated) || $last_updated == '0000-00-00') {
@@ -348,7 +353,8 @@
                         </p>
 
                         <p>Website Developed by:&nbsp;
-                            <a href="https://www.ragingdevelopers.com" target="_blank">
+                            <a href="https://www.ragingdevelopers.com?utm_source=sardardham.org&utm_medium=footer"
+                                target="_blank" aria-label="This website is developed by raging developers">
                                 <i class="fa fa-heart text-light" aria-hidden="true"></i>&nbsp;
                                 <span class="text-white h6">RagingDevelopers</span>
                             </a>

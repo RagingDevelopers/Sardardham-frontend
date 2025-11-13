@@ -228,14 +228,23 @@ if (empty($language)) {
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false"
                                 data-bs-auto-close="outside"><?= lang('five_goals') ?></a>
                             <ul class="dropdown-menu" aria-labelledby="ourTeamDropdown">
+                                <!-- <li
+                                    class="<?= $this->uri->uri_string() == "our-goals/building-project" ? 'active' : '' ?>">
+                                    <a href="<?=base_url('our-goals/building-project')?>"
+                                        class="dropdown-item">
+                                        <?=lang('building_projects')?>
+                                    </a>
+                                </li> -->
 
                                 <?php
                                 global $goals;
                                 $goals = queryLang()->order_by("sequence", "ASC")->get("goals")->result();
-                                foreach ($goals as $goal) { ?>
+                                foreach ($goals as $goal) { 
+                                    $preFix = $goal->active == 0 ?"our-goals/":"home/goals/";
+                                    ?>
                                     <li
-                                        class="<?= $this->uri->uri_string() == "home/goals/" . urlencode($goal->slug) ? 'active' : '' ?>">
-                                        <a href="<?= base_url("home/goals/" . urlencode($goal->slug)) ?>"
+                                        class="<?= $this->uri->uri_string() == ($goalUrl =$preFix . urlencode($goal->slug)) ? 'active' : '' ?>">
+                                        <a href="<?= base_url($goalUrl) ?>"
                                             class="dropdown-item"><?= $goal->title ?>
                                         </a>
                                     </li>

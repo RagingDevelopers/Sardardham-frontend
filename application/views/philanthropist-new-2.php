@@ -49,14 +49,33 @@ function q($base, $params = [])
         /* padding: 40px 0; */
     }
 
-    .design-3 .philanthropist-item {
+    /* .design-3 .philanthropist-item {
         background-color: #fff;
         border-bottom: 2px solid #4682b4;
         padding: 10px;
         display: flex;
         align-items: center;
         margin-bottom: 15px;
-    }
+    } */
+
+        .design-3 .philanthropist-item {
+    background-color: #fff;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    position: relative; /* Needed for absolute positioning */
+}
+
+.design-3 .philanthropist-item::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+       width: 80%;
+    right: 112px;
+    border-bottom: 2px solid #4682b4;
+}
+
 
     .design-3 .philanthropist-item img {
         width: 140px;

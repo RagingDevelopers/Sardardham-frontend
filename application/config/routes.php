@@ -56,6 +56,7 @@ $route['translate_uri_dashes'] = FALSE;
 // $routes->post("submit-data", "Site::submitData");
 
 
-$route['our-goals/building-project'] = 'home/buildingProject';
+$route['our-goals/sardardham-building-project'] = 'home/buildingProject';
+$route['our-goals/civil-service-centre'] = 'home/civilServiceCentre';
 
 // $routes->match(['get','post'],'/my_token','Login::my_token');
