@@ -1,67 +1,60 @@
 <section id="building-projects" class="pt-20 pb-20">
     <div class="text-center mb-2">
-        <h2><b>Building Projects (Hostels & Institutes)</b></h2>
+        <h2><b><?= lang('building_projects'); ?></b></h2>
         <div class="bar mx-auto"></div>
         <p>
-            Empowering Education Through Infrastructure
+            <?= lang('building_projects_tagline'); ?>
         </p>
     </div>
 
     <div class="content-box bg-white p-4 rounded-3 shadow-sm mx-auto">
         <span>
-            Under Mission 2026, Sardardham envisions investing <b>₹1,000 crores</b> to create world-class hostels and
-            academic institutions for <b>10,000 students</b> — providing accommodation, meals, training, and mentorship
-            at a nominal fee of just ₹1 for deserving, bright students.
+            <?= lang('building_projects_overview_1'); ?>
         </span>
         <span>
-            Sardardham's building projects are icons of <b>empowerment, unity, and progress</b>, inspired by the vision
-            of <b>Sardar Vallabhbhai Patel</b> to uplift society through education and self-reliance.
+            <?= lang('building_projects_overview_2'); ?>
         </span>
         <span>
-            Each campus is a comprehensive development hub — featuring academic centers, business and entrepreneurship
-            cells, libraries and e-libraries, modern kitchens and dining halls, gyms, auditoriums, conference rooms,
-            prayer halls, cultural venues, and management offices.
+            <?= lang('building_projects_overview_3'); ?>
         </span>
         <span>
-            More than just buildings, Sardardham campuses are hubs of <b>transformation and innovation</b>, nurturing
-            intellectual, physical, and cultural growth while building a stronger, self-reliant generation of future
-            leaders.
+            <?= lang('building_projects_overview_4'); ?>
         </span>
     </div>
 
     <!-- Flagship Projects -->
     <div class="mt-4">
         <div>
-            <h3 class="text-center fw-bold">Flagship Projects</h3>
-             <div class="bar mx-auto"></div>
-        </div>       
+            <h3 class="text-center fw-bold"><?= lang('flagship_projects_title'); ?></h3>
+            <div class="bar mx-auto"></div>
+        </div>
 
         <!-- Project 1 -->
         <div class="project text-center mt-5">
-            <h4 class="caption">Sardardham, Ahmedabad (₹200 Crores)</h4>
+            <h4 class="caption"><?= lang('flagship_project1_title'); ?></h4>
             <div class="image-container mt-3">
-                <img src="/assets/images/goals/Sardardham-Ahmedabad.jpg" class="img-fluid rounded shadow project-img"
-                    alt="Sardardham Ahmedabad">
+                <img src="/assets/images/goals/Sardardham-Ahmedabad.jpg"
+                     class="img-fluid rounded shadow project-img"
+                     alt="<?= lang('flagship_project1_alt'); ?>">
             </div>
             <div class="highlight-box text-white p-3 rounded mt-3">
                 <p>
-                    Located near Vaishnodevi Circle, Ahmedabad, this iconic complex accommodates over 2,000 students and
-                    serves as the foundation of Sardardham’s mission. It provides residential, educational, and training
-                    facilities, empowering bright youth from diverse backgrounds to excel.
+                    <?= lang('flagship_project1_desc'); ?>
                 </p>
             </div>
         </div>
 
         <!-- Project 2 -->
         <div class="project text-center mt-5">
-            <h4 class="caption">Phase-2 – Girls Hostel, Ahmedabad (₹200 Crores)</h4>
+            <h4 class="caption"><?= lang('flagship_project2_title'); ?></h4>
             <div class="image-container mt-3">
                 <img src="/assets/images/goals/Phase-2 – Girls Hostel, Ahmedabad (₹200 Crores).jpg"
-                    class="img-fluid rounded shadow project-img" alt="Girls Hostel Ahmedabad">
+                     class="img-fluid rounded shadow project-img"
+                     alt="<?= lang('flagship_project2_alt'); ?>">
             </div>
             <div class="highlight-box text-white p-3 rounded mt-3">
-                <p>A dedicated Girls’ Hostel Complex is being developed to accommodate 3,000 daughters, offering them
-                    safe, well-equipped, and inspiring spaces to pursue higher education and professional goals.
+                <p>
+                    <?= lang('flagship_project2_desc'); ?>
                 </p>
             </div>
         </div>
@@ -70,91 +63,104 @@
     <!-- Regional Expansion Projects -->
     <div class="mt-4">
         <div>
-            <h3 class="text-center fw-bold">Regional Expansion Projects</h3>
+            <h3 class="text-center fw-bold"><?= lang('regional_projects_title'); ?></h3>
             <div class="bar mx-auto"></div>
         </div>
 
         <!-- Vadodara -->
         <div class="project text-center mt-5">
-            <h4 class="caption">Central Gujarat (Vadodara) – Under Construction (₹150 Crores)</h4>
+            <h4 class="caption"><?= lang('regional_project_vadodara_title'); ?></h4>
             <div class="image-container mt-3">
                 <img src="/assets/images/goals/Central Gujarat (Vadodara) – Under Construction (₹150 Crores).jpg"
-                    class="img-fluid rounded shadow project-img" alt="Vadodara Project">
+                     class="img-fluid rounded shadow project-img"
+                     alt="<?= lang('regional_project_vadodara_alt'); ?>">
             </div>
             <div class="highlight-box text-white p-3 rounded mt-3">
-                <p>Set to open in 2025, the Vadodara campus will host 2,000 students, featuring modern amenities, green
-                    architecture, and training facilities that nurture leadership and innovation.
+                <p>
+                    <?= lang('regional_project_vadodara_desc'); ?>
                 </p>
             </div>
         </div>
+
+        <!-- Surat -->
         <div class="project text-center mt-5">
-            <h4 class="caption">South Gujarat (Surat) – Under Construction (₹200 Crores)</h4>
+            <h4 class="caption"><?= lang('regional_project_surat_title'); ?></h4>
             <div class="image-container mt-3">
                 <img src="/assets/images/goals/South Gujarat (Surat) Under Construction.jpg"
-                    class="img-fluid rounded shadow project-img" alt="Vadodara Project">
+                     class="img-fluid rounded shadow project-img"
+                     alt="<?= lang('regional_project_surat_alt'); ?>">
             </div>
             <div class="highlight-box text-white p-3 rounded mt-3">
-                <p>Spread across 31 acres, this upcoming education complex will include hostels, schools, and
-                    skill-development centers, providing holistic opportunities for youth development.
+                <p>
+                    <?= lang('regional_project_surat_desc'); ?>
                 </p>
             </div>
         </div>
+
+        <!-- Rajkot -->
         <div class="project text-center mt-5">
-            <h4 class="caption">Saurashtra Zone (Rajkot) – Under Construction (₹200 Crores)</h4>
+            <h4 class="caption"><?= lang('regional_project_rajkot_title'); ?></h4>
             <div class="image-container mt-3">
                 <img src="/assets/images/goals/Saurashtra Zone (Rajkot) – Under Construction.jpg"
-                    class="img-fluid rounded shadow project-img" alt="Vadodara Project">
+                     class="img-fluid rounded shadow project-img"
+                     alt="<?= lang('regional_project_rajkot_alt'); ?>">
             </div>
             <div class="highlight-box text-white p-3 rounded mt-3">
-                <p>The Rajkot project will serve 2,000 students, promoting education and community integration across
-                    the Saurashtra region.
+                <p>
+                    <?= lang('regional_project_rajkot_desc'); ?>
                 </p>
             </div>
         </div>
+
+        <!-- Mehsana -->
         <div class="project text-center mt-5">
-            <h4 class="caption">North Gujarat (Mehsana) – Upcoming (₹35 Crores)</h4>
+            <h4 class="caption"><?= lang('regional_project_mehsana_title'); ?></h4>
             <div class="image-container mt-3">
                 <img src="/assets/images/goals/North Gujarat (Mehsana) – Upcoming.jpg"
-                    class="img-fluid rounded shadow project-img" alt="Vadodara Project">
+                     class="img-fluid rounded shadow project-img"
+                     alt="<?= lang('regional_project_mehsana_alt'); ?>">
             </div>
             <div class="highlight-box text-white p-3 rounded mt-3">
-                <p>The Mehsana campus will support 400 students, continuing Sardardham’s commitment to equal educational
-                    access throughout the state.
+                <p>
+                    <?= lang('regional_project_mehsana_desc'); ?>
                 </p>
             </div>
         </div>
     </div>
-    <!-- Regional Expansion Projects -->
-    <div class="mt-4">
 
+    <!-- Established Centres -->
+    <div class="mt-4">
         <div class="">
-            <h3 class="text-center fw-bold">Established Centres</h3>
+            <h3 class="text-center fw-bold"><?= lang('established_centres_title'); ?></h3>
             <div class="bar mx-auto"></div>
         </div>
+
         <!-- Bhuj -->
         <div class="project text-center mt-5">
-            <h4 class="caption">Sardardham, Bhuj (₹40 Crores)</h4>
+            <h4 class="caption"><?= lang('centre_bhuj_title'); ?></h4>
             <div class="image-container mt-3">
-                <img src="/assets/images/goals/Sardardham Bhuj.jpg" class="img-fluid rounded shadow project-img"
-                    alt="Vadodara Project">
+                <img src="/assets/images/goals/Sardardham Bhuj.jpg"
+                     class="img-fluid rounded shadow project-img"
+                     alt="<?= lang('centre_bhuj_alt'); ?>">
             </div>
             <div class="highlight-box text-white p-3 rounded mt-3">
-                <p>Established in 2021, the Bhuj campus – Surya Varsani Civil Service Centre – accommodates 100 students
-                    and provides coaching and guidance for competitive examinations.
-
+                <p>
+                    <?= lang('centre_bhuj_desc'); ?>
                 </p>
             </div>
         </div>
+
         <!-- Civil Service Delhi -->
         <div class="project text-center mt-5">
-            <h4 class="caption">Civil Service Centre, Delhi</h4>
+            <h4 class="caption"><?= lang('centre_delhi_title'); ?></h4>
             <div class="image-container mt-3">
-                <img src="/assets/images/goals/Civil Service delhi.jpg" class="img-fluid rounded shadow project-img"
-                    alt="Vadodara Project">
+                <img src="/assets/images/goals/Civil Service delhi.jpg"
+                     class="img-fluid rounded shadow project-img"
+                     alt="<?= lang('centre_delhi_alt'); ?>">
             </div>
             <div class="highlight-box text-white p-3 rounded mt-3">
-                <p>Located in the capital, this center supports 75 aspirants preparing for the UPSC Civil Services
-                    Examination, providing them with residential and academic assistance.
+                <p>
+                    <?= lang('centre_delhi_desc'); ?>
                 </p>
             </div>
         </div>
@@ -209,12 +215,12 @@
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     }
 
-
     .content-box {
-    max-width: 90%;
-    font-size: 18px;
-    line-height: 1.7;
-}
+        max-width: 90%;
+        font-size: 18px;
+        line-height: 1.7;
+    }
+
     #building-projects .project-img {
         width: 100%;
         height: 100%;
