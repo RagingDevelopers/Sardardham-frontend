@@ -168,20 +168,15 @@
             <div class="col mb-4">
                 <h4><?= lang('five_goals') ?></h4>
                 <ul>
-                    <li>
-                        <a href="<?= base_url('our-goals/building-project') ?>">
-                            <?= lang('building_projects') ?>
-                        </a>
-                    </li>
                     <?php
-                    foreach ( $GLOBALS['goals'] as $goal ) { ?>
+                    foreach ( $GLOBALS['goals'] as $goal ) {
+                        $preFix = $goal->active == 0 ? "our-goals/" : "home/goals/"; ?>
                         <li>
-                            <a href="<?= base_url("home/goals/" . urlencode($goal->slug)) ?>">
+                            <a href="<?= base_url($preFix . urlencode($goal->slug)) ?>">
                                 <?= $goal->title ?>
                             </a>
                         </li>
                     <?php } ?>
-
                 </ul>
             </div>
 

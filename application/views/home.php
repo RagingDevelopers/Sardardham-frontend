@@ -436,12 +436,12 @@
   <div class="p-0 col-md-12 col-sm-12 col-12 container-fulid">
     <div class="swiper-container slideshow p-0">
       <div class="swiper-wrapper p-0">
-        <?php for ($x = 0; $x < count($slider); $x++) {
+        <?php for ( $x = 0; $x < count($slider); $x++ ) {
 
           // Use your three fields; fall back gracefully if any is missing
           $desktop = base_url('upload/' . (!empty($slider[$x]['photo_desktop']) ? $slider[$x]['photo_desktop'] : ($slider[$x]['photo'] ?? '')));
-          $tablet = base_url('upload/' . (!empty($slider[$x]['photo_tablet']) ? $slider[$x]['photo_tablet'] : (!empty($slider[$x]['photo_desktop']) ? $slider[$x]['photo_desktop'] : ($slider[$x]['photo'] ?? ''))));
-          $mobile = base_url('upload/' . (!empty($slider[$x]['photo_mobile']) ? $slider[$x]['photo_mobile'] : (!empty($slider[$x]['photo_tablet']) ? $slider[$x]['photo_tablet'] : (!empty($slider[$x]['photo_desktop']) ? $slider[$x]['photo_desktop'] : ($slider[$x]['photo'] ?? '')))));
+          $tablet  = base_url('upload/' . (!empty($slider[$x]['photo_tablet']) ? $slider[$x]['photo_tablet'] : (!empty($slider[$x]['photo_desktop']) ? $slider[$x]['photo_desktop'] : ($slider[$x]['photo'] ?? ''))));
+          $mobile  = base_url('upload/' . (!empty($slider[$x]['photo_mobile']) ? $slider[$x]['photo_mobile'] : (!empty($slider[$x]['photo_tablet']) ? $slider[$x]['photo_tablet'] : (!empty($slider[$x]['photo_desktop']) ? $slider[$x]['photo_desktop'] : ($slider[$x]['photo'] ?? '')))));
           ?>
           <div class="swiper-slide slide p-0">
             <div class="slide-image lazyload" style="
@@ -462,38 +462,11 @@
   </div>
 </div>
 
-
-<!-- <section class="ux-featured-section">
-  <div class="container-fluid p-0">
-    <div class="ux-slider" id="goalsSlider" aria-label="Goals Slider">
-      
-      <div class="ux-slider-viewport" id="goalsViewport">
-        <div class="ux-slider-track" id="goalsTrack">
-          <?php foreach ($goals as $goal) { ?>
-            <div class="ux-slide">
-              <div class="ux-card-item">
-                <div class="ux-card-icon">
-                  <img src="<?= base_url("upload/$goal->icon") ?>" alt="Goal Icon">
-                </div>
-                <span class="ux-card-title">
-                  <?= $goal->title ?>
-                </span>
-                <a href="<?= base_url("home/goals/" . urlencode($goal->slug)) ?>" class="ux-card-link">
-                  <?= lang('know_more') ?>
-                </a>
-              </div>
-            </div>
-          <?php } ?>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
 <section class="ux-featured-section">
   <div class="ux-slider">
     <div class="ux-slider-track">
-      <?php foreach ($goals as $goal) { ?>
-        <div class="ux-slide">
+      <?php foreach ( $goals as $goal ) { ?>
+        <div class="ux-slide" onclick="redirectToGoal('<?= $goal->slug ?>', '<?= $goal->active ?>')">
           <div class="ux-card-item">
             <img src="<?= base_url("upload/$goal->icon") ?>" alt="Goal Icon">
           </div>
@@ -503,73 +476,6 @@
   </div>
 </section>
 
-
-<!-- <div class="container my-5">
-  <div class="row">
-    <div class="col-md-6">
-      <div class="notice-block" id="current-advertisement">
-        <div class="title">
-          <span><i class="fa fa-envelope faa-shake animated fa-lg"></i> <?= lang('e_notice_board') ?></span>
-        </div>
-        <marquee direction="up" class="marquee-content" scrollamount="3">
-          <div class="content" onmouseover="this.parentNode.stop()" onmouseout="this.parentNode.start()">
-            <ul>
-              <?php foreach ($announcements as $noticeAnnouncement): ?>
-                <?php if ($noticeAnnouncement->type == 'E-notice board'): ?>
-                  <li><a target="_blank"
-                      href="<?php echo base_url('upload/' . $noticeAnnouncement->document); ?>"><?php echo htmlspecialchars($noticeAnnouncement->title); ?></a>
-                  </li>
-                <?php endif; ?>
-              <?php endforeach; ?>
-            </ul>
-          </div>
-        </marquee>
-      </div>
-    </div>
-
-    <div class="col-md-6">
-      <div class="notice-block" id="examination-callletter">
-        <div class="title">
-          <span><i class="fa fa-newspaper faa-tada animated fa-lg"></i> <?= lang('whats_next') ?>?</span>
-        </div>
-        <marquee direction="up" class="marquee-content" scrollamount="3">
-          <div class="content" onmouseover="this.parentNode.stop()" onmouseout="this.parentNode.start()">
-            <ul>
-              <?php foreach ($announcements as $NextAnnouncement): ?>
-                <?php if ($NextAnnouncement->type == "What's next"): ?>
-                  <li><a target="_blank"
-                      href="<?php echo base_url('upload/' . $NextAnnouncement->document); ?>"><?php echo htmlspecialchars($NextAnnouncement->title); ?></a>
-                  </li>
-                <?php endif; ?>
-              <?php endforeach; ?>
-            </ul>
-          </div>
-        </marquee>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<!-- <section id="about-part" class="pt-40 pb-0">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-9 col-md-9 col-12 col-sm-12">
-        <span class="h2"><b><?= $ideology->title ?></b></span>
-        <div class="bar"></div>
-        <div class="about-cont bg-white">
-          <p style="color: #111; overflow:hidden;" data-aos="fade-right" data-aos-duration="1000">
-            <?= $ideology->description ?>
-          </p>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-3 col-sm-12 p-0 m-0">
-        <div class="p-0 m-0 text-center Statue" data-aos="fade-left" data-aos-duration="1000">
-          <img loading="lazy" src="<?= base_url("upload/{$ideology->photo}"); ?>" class="" alt="img">
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
 
 <div class="section-title" style="margin-bottom: 20px !important;">
   <h2><?= $ideology->title ?></h2>
@@ -604,9 +510,9 @@
 
                 $length = $this->session->userdata('language_id') == '2' ? 2495 : 1400;
 
-                $synopsis = $ideology->description ?? "--";
+                $synopsis       = $ideology->description ?? "--";
                 $short_synopsis = substr($synopsis, 0, $length);
-                $is_long = strlen($synopsis) > $length;
+                $is_long        = strlen($synopsis) > $length;
                 ?>
               <div class="short-text">
                 <?= nl2br($short_synopsis) ?> <?= $is_long ? "..." : "" ?>
@@ -625,46 +531,9 @@
         </div>
       </div>
     </div>
-    <!--<style>-->
-    <!--    #president-info {-->
-    <!--        position: relative;-->
-    <!--    }-->
-    <!--    #president-info::before {-->
-    <!--        content: '';-->
-    <!--        position: absolute;-->
-    <!--        top: 0;-->
-    <!--        left: 0;-->
-    <!--        right: 0;-->
-    <!--        bottom: 0;-->
-    <!--        background: rgba(255, 255, 255, 0.5);-->
-    <!--        border-radius: 15px;-->
-    <!--        z-index: -1;-->
-    <!--        filter: blur(10px);-->
-    <!--    }-->
-    <!--</style>-->
   </section>
 </div>
 
-<!-- <section class="featured-boxes-area">
-  <div class="container-fluid shadow-lg p-0">
-    <div class="featured-boxes-inner">
-      <div class="row m-0 justify-content-center">
-        <?php foreach ($goals as $goal) { ?>
-          <div class="col-lg-2 col-sm-6 col-md-6 p-0" data-aos="zoom-in-up">
-            <div class="single-featured-box">
-              <div class="icon color-fb7756">
-                <img src="<?= base_url("upload/$goal->icon") ?>" width="45" height="45" class="bi bi-diagram-3" />
-              </div>
-              <span class="h5 fw-bold"><?= $goal->title ?></span>
-              <a href="<?= base_url("home/goals/" . urlencode($goal->slug)) ?>"
-                class="read-more-btn"><?= lang('know_more') ?></a>
-            </div>
-          </div>
-        <?php } ?>
-      </div>
-    </div>
-  </div>
-</section> -->
 
 <section class="pt-20 container-fluid">
   <div class="section-title" style="margin-bottom: 0px !important;">
@@ -676,7 +545,7 @@
   </div>
 
   <div class="row testimonial-slied">
-    <?php for ($x = 0; $x < count($documentary); $x++) { ?>
+    <?php for ( $x = 0; $x < count($documentary); $x++ ) { ?>
       <div class="col-lg-4 px-2">
         <div class="singel-teachers mt-30 text-center">
           <div class="image">
@@ -716,7 +585,7 @@
   </div>
 
   <div class="row testimonial-slied1">
-    <?php for ($x = 0; $x < 4; $x++) { ?>
+    <?php for ( $x = 0; $x < 4; $x++ ) { ?>
       <div class="col-lg-3 px-2">
         <div class="singel-teachers mt-30 text-center">
           <div class="image">
@@ -788,7 +657,7 @@
   </div>
 
   <div class="row testimonial-slied">
-    <?php for ($x = 0; $x < count($events); $x++) { ?>
+    <?php for ( $x = 0; $x < count($events); $x++ ) { ?>
       <div class="col-lg-4 px-2 ">
         <div class="singel-teachers mt-30 text-center">
           <div class="image">
@@ -859,82 +728,6 @@
 
   </div>
 </div>
-
-<!--<div class="modal fade" id="myModalpopuppage" role="dialog">-->
-<!--  <div class="modal-dialog">-->
-
-<!-- Modal content-->
-<!--    <div class="modal-content">-->
-<!--      <div class="modal-header">-->
-<!--      <?= lang('quick_links') ?>-->
-<!--        <button type="button" class="btn close ms-auto" data-bs-dismiss="modal"><?= lang('close') ?></button>-->
-
-<!--      </div>-->
-
-<!--      <div class="modal-body text-center">-->
-<!--      <div class="">-->
-<!-- <button type="button" class="btn btn-primary"><a href="<?= base_url('assets/form1.jpeg'); ?>" target="_blank" download>Click here for Application in Samaj Setu Samiti</a>      </button> -->
-<!--          <button  type="button" class="btn btn-primary"> <a href="https://csc.sardardham.org/home/scholarship" target="_blank"><?= lang('click_here_apply_scholarship') ?></a></button>-->
-<!--      </div>-->
-
-
-<!--      </div>-->
-<!--      <div class="modal-footer d-flex justify-content-center">-->
-
-<!--      </div>-->
-
-<!--    </div>-->
-
-<!--  </div>-->
-<!--</div>-->
-
-<!-- popup model dynamic -->
-
-<!-- Language Modal -->
-
-<!-- <div class="modal fade" id="popupModel" tabindex="-1" aria-labelledby="popupModelLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content" style="border-radius: 10px; box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.15);">
-      <div class="modal-header" style="border-top-left-radius: 10px; border-top-right-radius: 10px;">
-        <h5 class="modal-title" id="popupModelLabel">
-          < htmlspecialchars($popup->title) ?>
-        </h5>
-      </div>
-      <div class="modal-body" style="padding: 30px;">
-        <form id="languageForm"> -->
-
-<!-- Check if there is an image uploaded -->
-<!-- < if (!empty($popup->photo)): ?>
-            <div class="mb-4 text-center">
-              <img src="< base_url("upload/") . htmlspecialchars($popup->photo) ?>" alt="Popup Image"
-                style="border-radius: 10px;height: 250px;">
-            </div>
-          < endif; ?> -->
-
-
-<!-- Check if there is a description -->
-<!-- < if (!empty($popup->description)): ?>
-            <div class="mb-3">
-              <p>< nl2br(($popup->description)) ?></p>
-            </div>
-          < endif; ?> -->
-
-<!-- Check if there's a PDF -->
-<!-- < if (!empty($popup->pdf)): ?>
-            <div class="mb-4">
-              <a href="< base_url("upload/") . htmlspecialchars($popup->pdf) ?>" target="_blank"
-                class="btn btn-secondary w-100" style="padding: 12px; border-radius: 8px; font-size: 1.1rem;">View PDF</a>
-            </div>
-          < endif; ?>
-
-
-          <button type="button" class="btn btn-primary w-100" data-bs-dismiss="modal"
-            style="padding: 12px; border-radius: 8px; font-size: 1.1rem; background-color: #05C0C0; border: none;">Close</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div> -->
 
 <?php $this->load->view('popup_modal'); ?>
 
@@ -1115,6 +908,10 @@
   $(window).on('load', function () {
     $('#myModalpopuppage').modal('show');
   });
+
+  const redirectToGoal = (slug, e) => {
+    window.location.href = `<?= base_url() ?>${e == 1 ? 'home/goals/' : 'our-goals/'}${encodeURIComponent(slug)}?ref=homepage`;
+  };
 
   $(document).on('click', ".see-more", function () {
     var $this = $(this);

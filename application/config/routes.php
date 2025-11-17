@@ -58,5 +58,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['our-goals/sardardham-building-project'] = 'home/buildingProject';
 $route['our-goals/civil-service-centre'] = 'home/civilServiceCentre';
+$route['our-goals/global-patidar-business-organization'] = 'home/gpbo';
+$route['our-goals/global-patidar-business-summit-gpbs'] = 'home/gpbs';
 
 // $routes->match(['get','post'],'/my_token','Login::my_token');
