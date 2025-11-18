@@ -81,4 +81,11 @@ class Home extends MY_Controller
         $page_data['page_title'] = "GPBS";
         $this->load->view('common', $page_data);
     }
+
+    public function youthOrganization()
+    {
+        $page_data['page_name'] = "goals/youth_organization";
+        $page_data['page_title'] = "Youth Organization";
+        $this->load->view('common', $page_data);
+    }
 }

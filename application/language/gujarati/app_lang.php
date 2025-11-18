@@ -236,3 +236,16 @@ $lang['highlights_3'] = "Seminars and workshops on branding, marketing, taxation
 $lang['highlights_4'] = "The prestigious “Patidar Udyog Ratna” Award, celebrating excellence in entrepreneurship.";
 $lang['highlights_5'] = "Publication of the GPBS Coffee Table Book, highlighting inspiring success stories.";
 $lang['gpbs_last_line'] = "Through GPBS, Sardardham continues to empower the business community with opportunities for collaboration, innovation, and growth — strengthening its vision of “Social Building to Nation Building.”";
+
+// Youth Organization
+$lang['youth_organization_title'] = "Sardardham Youth Organization";
+$lang['youth_organization_tagline'] = "Empowering Youth Through Unity and Leadership";
+$lang['youth_overview_1'] = "The Sardardham Youth Organization — known as Sardardham Yuva Sangathan — forms the fifth pillar of Mission 2026, dedicated to bringing together the vibrant youth of the Patidar community under one united platform.";
+$lang['youth_overview_2'] = "With a vision to unite 1,00,000+ young men and women, SYO organizes motivational programs, seminars, and interactive dialogues that inspire participation, leadership, and social awareness. The organization encourages youth to contribute actively toward “Nation Building through Community Building”, embodying the ideals of Sardar Vallabhbhai Patel.";
+$lang['youth_overview_3'] = "SYO serves as a hub for leadership development, entrepreneurship encouragement, and social responsibility. It promotes discussions on education, innovation, social issues, and community welfare — nurturing youth who are patriotic, disciplined, and purpose-driven.";
+$lang['youth_overview_4'] = "Membership is open to all Patidar youth below 50 years of age, with free online registration. The network now extends from state to district, taluka, and village levels, strengthening community engagement and unity across India.";
+$lang['who_can_join'] = "Who Can Join?";
+$lang['youth_descri_1'] = "Any Patidar youth who wishes to contribute to society, grow personally, and walk the path shown by SardarSaheb is welcome to be part of this vibrant organization.";
+$lang['youth_descri_2'] = "Join thousands of empowered young leaders shaping the future with values, vision, and unity.";
+$lang['youth_descri_3'] = "Join the movement and become part of a youth force shaping India’s future.";
+$lang['become_a_part'] = "Become a Part of the Movement";
