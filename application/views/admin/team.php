@@ -102,9 +102,9 @@
 <script>
       $('#exampleInputFile1').bind('change', function() {
         var size = this.files[0].size;
-       if(size <= 314627){
+       if(size <= 2097152){
        }else{
-           alert("Maximum Size Is 307 KB");
+           alert("Maximum Size Is 2 MB");
               this.value = null;
        }
     });
