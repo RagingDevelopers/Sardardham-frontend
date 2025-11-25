@@ -70,11 +70,55 @@ $language_id = $CI->session->userdata('language_id') ?? 1;
         class=""><?= lang('dikri_datak_yojna_sardardham') ?></span>
 </div>
 
-<div class="container-fluid mt-4">
-    <div class="form-group">
-        <p style="color: #111; overflow:hidden;" data-aos="fade-right" data-aos-duration="1000">
-            <?= $dikri_yojna->description ?>
-        </p>
+<div class="container mt-4">
+    <div class="form-group" style="color: #111;" data-aos="fade-right" data-aos-duration="1000">
+        <div class="text-center pt-4 mb-0">
+            <h2><?= lang('students_adoption_title') ?></h2>
+            <div class="bar mx-auto"></div>
+            <p><?= lang('students_adoption_sub_title_1') ?></p>
+        </div>
+        <br>
+        <p style="color: #111;"><?= lang('students_adoption_1') ?></p>
+        <p style="color: #111;"><?= lang('students_adoption_2') ?></p>
+        <br>
+        <h5><?= lang('students_adoption_sub_title_2') ?></h5>
+        <p style="color: #111;"><?= lang('students_adoption_3') ?></p>
+        <img src="/assets/General.jpg" alt="Demo Image" width="500">
+        <br>
+        <br>
+        <h5><?= lang('students_adoption_sub_title_3') ?></h5>
+        <ul style="list-style-type: none;">
+            <li><?= lang('students_adoption_receive_1') ?></li>
+            <li><?= lang('students_adoption_receive_2') ?></li>
+            <li><?= lang('students_adoption_receive_3') ?></li>
+            <li><?= lang('students_adoption_receive_4') ?></li>
+            <li><?= lang('students_adoption_receive_5') ?></li>
+        </ul>
+        <br>
+        <h5><?= lang('students_adoption_sub_title_4') ?></h5>
+        <ui style="list-style-type: none;">
+            <li><?= lang('students_adoption_works_1') ?></li>
+            <li><?= lang('students_adoption_works_2') ?></li>
+            <li><?= lang('students_adoption_works_3') ?></li>
+            <li><?= lang('students_adoption_works_4') ?></li>
+        </ui>
+        <br>
+        <p style="color: #111;"><?= lang('students_adoption_4') ?></p>
+        <br>
+        <h5><?= lang('students_adoption_sub_title_5') ?></h5>
+        <p style="color: #111;"><?= lang('students_adoption_5') ?></p>
+        <br>
+        <h5><?= lang('students_adoption_sub_title_6') ?></h5>
+        <ui style="list-style-type: none;">
+            <li><?= lang('students_adoption_scheme_1') ?></li>
+            <li><?= lang('students_adoption_scheme_2') ?></li>
+            <li><?= lang('students_adoption_scheme_3') ?></li>
+            <li><?= lang('students_adoption_scheme_4') ?></li>
+            <li><?= lang('students_adoption_scheme_5') ?></li>
+        </ui>
+        <br>
+        <h5><?= lang('students_adoption_sub_title_7') ?></h5>
+        <p style="color: #111;"><?= lang('students_adoption_6') ?></p>
     </div>
 
     <!-- Donor Form Card -->

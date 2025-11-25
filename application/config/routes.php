@@ -49,17 +49,47 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'home';
-$route['404_override'] = '';
+$route['default_controller']   = 'home';
+$route['404_override']         = '';
 $route['translate_uri_dashes'] = FALSE;
-// $routes->get("my-form", "Site::myForm");
-// $routes->post("submit-data", "Site::submitData");
 
 
-$route['our-goals/sardardham-building-project'] = 'home/buildingProject';
-$route['our-goals/civil-service-centre'] = 'home/civilServiceCentre';
+// About Us
+$route['about-us/sardardham-a-thought'] = 'sardardham/index';
+$route['about-us/mission-vision-goal']  = 'sardardham/mission';
+$route['about-us/philanthropist']       = 'philanthropist/index';
+$route['about-us/team-sardardham']      = 'sardardham/team';
+
+// Our Goals
+$route['our-goals/sardardham-building-project']          = 'home/buildingProject';
+$route['our-goals/civil-service-centre']                 = 'home/civilServiceCentre';
 $route['our-goals/global-patidar-business-organization'] = 'home/gpbo';
-$route['our-goals/global-patidar-business-summit-gpbs'] = 'home/gpbs';
-$route['our-goals/youth-organization'] = 'home/youthOrganization';
+$route['our-goals/global-patidar-business-summit-gpbs']  = 'home/gpbs';
+$route['our-goals/youth-organization']                   = 'home/youthOrganization';
+
+// Activities
+$route['activities/students-adoption-scheme']       = 'sardardham/datak_yojna';
+$route['activities/scholarship-scheme']             = 'sardardham/scholarship_scheme';
+$route['activities/update']                         = 'update';
+$route['activities/revenue-guidance-centre']        = 'sardardham/revenue_guidance_centre';
+$route['activities/medical-centre']                 = 'sardardham/medical_centre';
+$route['activities/business-development-center']    = 'sardardham/business_development_center';
+$route['activities/trustee-guest-house']            = 'sardardham/trustee_guest_house';
+
+// SPIBO
+$route['spibo'] = 'sardardham/spibo';
+
+// Media
+$route['media/news']            = 'update/news';
+$route['media/event']           = 'update/event';
+$route['media/video-gallery']   = 'gallery/video_gallery';
+$route['media/gallery']         = 'gallery';
+
+// Donation
+$route['donation'] = 'sardardham/donation';
+
+// Contact Us
+$route['contact-us'] = 'connect';
+
 
 // $routes->match(['get','post'],'/my_token','Login::my_token');

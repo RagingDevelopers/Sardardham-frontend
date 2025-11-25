@@ -155,12 +155,12 @@
             <div class="col mb-4">
                 <h4> <?php echo lang('about_us'); ?></h4>
                 <ul>
-                    <li><a href="<?= base_url('sardardham'); ?>"><?php echo lang('about_us'); ?></a></li>
-                    <li><a href="<?= base_url('sardardham/team'); ?>"><?= lang('team'); ?></a></li>
-                    <li><a href="<?= base_url('sardardham/mission'); ?>"><?= lang('mission_vision_goal'); ?></a></li>
-                    <li><a href="<?= base_url('update/event'); ?>"><?= lang('event'); ?></a></li>
-                    <li><a href="<?= base_url('sardardham/donation'); ?>"><?= lang('donation'); ?></a></li>
-                    <li><a href="<?= base_url('connect'); ?>"><?= lang('connect') ?></a></li>
+                    <li><a href="<?= base_url('about-us/sardardham-a-thought'); ?>"><?php echo lang('thought'); ?></a></li>
+                    <li><a href="<?= base_url('about-us/team-sardardham'); ?>"><?= lang('team'); ?></a></li>
+                    <li><a href="<?= base_url('about-us/mission-vision-goal'); ?>"><?= lang('mission_vision_goal'); ?></a></li>
+                    <li><a href="<?= base_url('media/event'); ?>"><?= lang('event'); ?></a></li>
+                    <li><a href="<?= base_url('donation'); ?>"><?= lang('donation'); ?></a></li>
+                    <li><a href="<?= base_url('contact-us'); ?>"><?= lang('connect') ?></a></li>
                 </ul>
             </div>
 
@@ -184,43 +184,43 @@
                 <h4> <?php echo lang('activity'); ?></h4>
                 <ul>
                     <li>
-                        <a href="<?= base_url('sardardham/datak_yojna'); ?>"
-                            class="<?= is_active('sardardham/datak_yojna') ?>">
-                            <?= lang('dikri_datak_yojna'); ?>
+                        <a href="<?= base_url('activities/students-adoption-scheme'); ?>"
+                            class="<?= is_active('activities/students-adoption-scheme') ?>">
+                            <?= lang('dikri_datak_yojna_sardardham'); ?>
                         </a>
                     </li>
                     <li>
-                        <a href="<?= base_url('sardardham/scholarship_scheme') ?>"
-                            class="<?= is_active('sardardham/scholarship_scheme') ?>">
+                        <a href="<?= base_url('activities/scholarship-scheme') ?>"
+                            class="<?= is_active('activities/scholarship-scheme') ?>">
                             <?= lang('dr_chittaranjanbhai'); ?>
                         </a>
                     </li>
                     <li>
-                        <a href="<?= base_url('update'); ?>" class="<?= is_active('update') ?>">
+                        <a href="<?= base_url('activities/update'); ?>" class="<?= is_active('activities/update') ?>">
                             <?= lang('ek_vichar_magazine'); ?>
                         </a>
                     </li>
                     <li>
-                        <a href="<?= base_url('sardardham/revenue_guidance_centre') ?>"
-                            class="<?= is_active('sardardham/revenue_guidance_centre') ?>">
+                        <a href="<?= base_url('activities/revenue-guidance-centre') ?>"
+                            class="<?= is_active('activities/revenue-guidance-centre') ?>">
                             <?= lang('revenue_guidance_centre'); ?>
                         </a>
                     </li>
                     <li>
-                        <a href="<?= base_url('sardardham/medical_centre'); ?>"
-                            class="<?= is_active('sardardham/medical_centre') ?>">
+                        <a href="<?= base_url('activities/medical-centre'); ?>"
+                            class="<?= is_active('activities/medical-centre') ?>">
                             <?= lang('medical_centre'); ?>
                         </a>
                     </li>
                     <li>
-                        <a href="<?= base_url('sardardham/business_development_center') ?>"
-                            class="<?= is_active('sardardham/business_development_center') ?>">
+                        <a href="<?= base_url('activities/business-development-center') ?>"
+                            class="<?= is_active('activities/business-development-center') ?>">
                             <?= lang('business_development_center'); ?>
                         </a>
                     </li>
                     <li>
-                        <a href="<?= base_url('sardardham/trustee_guest_house') ?>"
-                            class="<?= is_active('sardardham/trustee_guest_house') ?>">
+                        <a href="<?= base_url('activities/trustee-guest-house') ?>"
+                            class="<?= is_active('activities/trustee-guest-house') ?>">
                             <?= lang('trustee_guest_house'); ?>
                         </a>
                     </li>

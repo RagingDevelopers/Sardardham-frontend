@@ -142,24 +142,23 @@
     <h2><b>Magazine</b></h2>
     <div class="bar"></div>
   </div>
-    <div class="form-group">
-      <p style="color: #111; overflow:hidden;" data-aos="fade-right" data-aos-duration="1000">
-        <?= $magazine_content->description ?? "" ?>
-      </p>
-    </div>
+  <div class="form-group">
+    <p style="color: #111; overflow:hidden;" data-aos="fade-right" data-aos-duration="1000">
+      <?= $magazine_content->description ?? "" ?>
+    </p>
+  </div>
   <ul class="nav nav-pills mb-3 gap-3 justify-content-center" id="pills-tab" role="tablist">
     <?php for ($x = 0; $x < count($year); $x++) { ?>
       <li class="nav-item" role="presentation">
         <button class="nav-link  year-btn <?php if ($x == 0) {
           echo 'active';
-        } ?>" data-year="<?= $year[$x]['year']; ?>"
-          id="pill-<?= $year[$x]['year']; ?>" data-id="<?= $year[$x]['year']; ?>" data-bs-toggle="pill"
-          data-bs-target="#tab-<?= $year[$x]['year']; ?>" type="button" role="tab" aria-controls="<?= $year[$x]['year']; ?>"
-          aria-selected="<?php if ($x == 0) {
-            echo 'true';
-          } else {
-            echo 'false';
-          } ?>"><?= $year[$x]['year']; ?></button>
+        } ?>" data-year="<?= $year[$x]['year']; ?>" id="pill-<?= $year[$x]['year']; ?>"
+          data-id="<?= $year[$x]['year']; ?>" data-bs-toggle="pill" data-bs-target="#tab-<?= $year[$x]['year']; ?>"
+          type="button" role="tab" aria-controls="<?= $year[$x]['year']; ?>" aria-selected="<?php if ($x == 0) {
+              echo 'true';
+            } else {
+              echo 'false';
+            } ?>"><?= $year[$x]['year']; ?></button>
       </li>
     <?php } ?>
   </ul>

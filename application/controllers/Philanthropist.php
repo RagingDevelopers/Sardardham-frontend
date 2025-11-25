@@ -27,7 +27,7 @@ class Philanthropist extends MY_Controller
         $existingCategoryIds = array_column($page_data['categories'], 'id');
         $existingZoneIds = array_column($page_data['zones'], 'id');
 
-        $defaultCategoryId = 1;
+        $defaultCategoryId = 2;
         $defaultZone = '';
         $defaultPage = 1;
 
@@ -65,7 +65,7 @@ class Philanthropist extends MY_Controller
                 'zone' => $selected_zone,
                 'page' => $page,
             ]);
-            redirect(base_url('philanthropist') . '?' . $cleanQuery, 'location', 302);
+            redirect(base_url('about-us/philanthropist') . '?' . $cleanQuery, 'location', 302);
             return;
         }
 
@@ -84,7 +84,7 @@ class Philanthropist extends MY_Controller
                     'zone' => $selected_zone,
                     'page' => 1,
                 ]);
-                redirect(base_url('philanthropist') . '?' . $cleanQuery, 'location', 302);
+                redirect(base_url('about-us/philanthropist') . '?' . $cleanQuery, 'location', 302);
                 return;
             } else {
                 $page = 1;
@@ -221,7 +221,7 @@ class Philanthropist extends MY_Controller
                 <?php foreach ($philanthropists as $philanthropist): ?>
                     <div class="col-lg-6 col-md-6 col-sm-12 p-2">
                         <div class="philanthropist-item">
-                            <a href="<?= base_url() ?>upload/<?= $philanthropist['photo']; ?>" class="fancylight popup-btn">
+                            <a href="<?= base_url() ?>upload/<?= $philanthropist['photo']; ?>" target="_blank" class="fancylight popup-btn">
                                 <img src="<?= base_url() ?>upload/<?= $philanthropist['photo']; ?>"
                                     alt="<?= $philanthropist['name']; ?>" onerror="this.src='<?= $dummyImage ?>'">
                             </a>
@@ -245,7 +245,7 @@ class Philanthropist extends MY_Controller
 
     private function build_pagination_html($currentCategory, $currentZone, $currentPage, $totalPages)
     {
-        $baseUrl = base_url('philanthropist');
+        $baseUrl = base_url('about-us/philanthropist');
 
         $q = function ($base, $params = []) {
             return $base . '?' . http_build_query($params);

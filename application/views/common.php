@@ -190,62 +190,50 @@ if (empty($language)) {
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 bottom-navbar">
                         <!-- <li class="nav-item"><a class="nav-link active" href="">Home</a></li> -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle <?= is_active(['sardardham', 'sardardham/mission', 'philanthropist', 'sardardham/team']) ?>"
+                             <?php
+                            $isActive = (strpos($this->uri->uri_string(), "about-us") === 0) ? 'active' : '';
+                            ?>
+                            <a class="nav-link dropdown-toggle <?=  $isActive?>"
                                 href="#" id="aboutUsDropdown" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false" data-bs-auto-close="outside">
                                 <?php echo lang('about_us'); ?>
                             </a>
 
                             <ul class="dropdown-menu" aria-labelledby="aboutUsDropdown">
-                                <li class="<?= is_active('sardardham') ?>">
-                                    <a class="dropdown-item "
-                                        href="<?= base_url('sardardham'); ?>"><?= lang('thought') ?></a>
-                                </li>
-                                <li class="<?= is_active('sardardham/mission') ?>">
-                                    <a class="dropdown-item "
-                                        href="<?= base_url('sardardham/mission'); ?>"><?= lang('mission_vision_goal'); ?></a>
-                                </li>
-                                <li class="<?= is_active('philanthropist') ?>">
-                                    <a class="dropdown-item "
-                                        href="<?= base_url('philanthropist'); ?>"><?= lang('philanthropist'); ?></a>
-                                    </a>
-                                    </a>
-                                </li>
-                                <li class="<?= is_active('sardardham/team') ?>">
-                                    <a class="dropdown-item "
-                                        href="<?= base_url('sardardham/team'); ?>"><?= lang('team'); ?></a>
-                                </li>
+                                <?php
+                                $aboutUs = [
+                                    'sardardham-a-thought' => "thought",
+                                    'mission-vision-goal'  => 'mission_vision_goal',
+                                    'philanthropist'       => 'philanthropist',
+                                    'team-sardardham'      => 'team'
+                                ];
+                                foreach ( $aboutUs as $url => $name ) {
+                                    ?>
+                                    <li class="<?= is_active("about-us/{$url}") ?>">
+                                        <a class="dropdown-item "
+                                            href="<?= base_url("about-us/{$url}"); ?>"><?= lang($name) ?></a>
+                                    </li>
+                                <?php } ?>
                             </ul>
-
                         </li>
 
                         <li class="nav-item dropdown">
                             <?php
-                            // Check if the current URI starts with "home/goals"
-                            $isActive = (strpos($this->uri->uri_string(), "home/goals") === 0) ? 'active' : '';
+                            $isActive = (strpos($this->uri->uri_string(), "our-goals") === 0) ? 'active' : '';
                             ?>
                             <a class="nav-link dropdown-toggle <?= $isActive ?> " href="#" id="ourTeamDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false"
                                 data-bs-auto-close="outside"><?= lang('five_goals') ?></a>
                             <ul class="dropdown-menu" aria-labelledby="ourTeamDropdown">
-                                <!-- <li
-                                    class="<?= $this->uri->uri_string() == "our-goals/building-project" ? 'active' : '' ?>">
-                                    <a href="<?=base_url('our-goals/building-project')?>"
-                                        class="dropdown-item">
-                                        <?=lang('building_projects')?>
-                                    </a>
-                                </li> -->
-
                                 <?php
                                 global $goals;
                                 $goals = queryLang()->order_by("sequence", "ASC")->get("goals")->result();
-                                foreach ($goals as $goal) { 
-                                    $preFix = $goal->active == 0 ?"our-goals/":"home/goals/";
+                                foreach ( $goals as $goal ) {
+                                    $preFix = $goal->active == 0 ? "our-goals/" : "home/goals/";
                                     ?>
                                     <li
-                                        class="<?= $this->uri->uri_string() == ($goalUrl =$preFix . urlencode($goal->slug)) ? 'active' : '' ?>">
-                                        <a href="<?= base_url($goalUrl) ?>"
-                                            class="dropdown-item"><?= $goal->title ?>
+                                        class="<?= $this->uri->uri_string() == ($goalUrl = $preFix . urlencode($goal->slug)) ? 'active' : '' ?>">
+                                        <a href="<?= base_url($goalUrl) ?>" class="dropdown-item"><?= $goal->title ?>
                                         </a>
                                     </li>
                                 <?php } ?>
@@ -255,57 +243,57 @@ if (empty($language)) {
 
                         <li class=" nav-item dropdown">
                             <a class="nav-link dropdown-toggle <?= is_active([
-                                'sardardham/datak_yojna',
-                                'sardardham/scholarship_scheme',
-                                'update',
-                                'sardardham/revenue_guidance_centre',
-                                'sardardham/medical_centre',
-                                'sardardham/business_development_center',
-                                'sardardham/trustee_guest_house'
+                                'activities/students-adoption-scheme',
+                                'activities/scholarship-scheme',
+                                'activities/update',
+                                'activities/revenue-guidance-centre',
+                                'activities/medical-centre',
+                                'activities/business-development-center',
+                                'activities/trustee-guest-house'
                             ]) ?>" href="#" id="activityDropdown" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false" data-bs-auto-close="outside">
                                 <?php echo lang('activity'); ?>
                             </a>
 
                             <ul class="dropdown-menu" aria-labelledby="activityDropdown">
-                                <li class="<?= is_active('sardardham/datak_yojna') ?>">
+                                <li class="<?= is_active('activities/students-adoption-scheme') ?>">
                                     <a class="dropdown-item "
-                                        href="<?= base_url('sardardham/datak_yojna'); ?>"><?= lang('dikri_datak_yojna') ?></a>
+                                        href="<?= base_url('activities/students-adoption-scheme'); ?>"><?= lang('dikri_datak_yojna_sardardham') ?></a>
                                 </li>
-                                <li class="<?= is_active('sardardham/scholarship_scheme') ?>">
+                                <li class="<?= is_active('activities/scholarship-scheme') ?>">
                                     <a class="dropdown-item "
-                                        href="<?= base_url('sardardham/scholarship_scheme'); ?>"><?= lang('dr_chittaranjanbhai'); ?></a>
+                                        href="<?= base_url('activities/scholarship-scheme'); ?>"><?= lang('dr_chittaranjanbhai'); ?></a>
                                 </li>
-                                <li class="<?= is_active('update') ?>">
+                                <li class="<?= is_active('activities/update') ?>">
                                     <a class="dropdown-item "
-                                        href="<?= base_url('update'); ?>"><?= lang('ek_vichar_magazine'); ?></a>
+                                        href="<?= base_url('activities/update'); ?>"><?= lang('ek_vichar_magazine'); ?></a>
                                 </li>
-                                <li class="<?= is_active('sardardham/revenue_guidance_centre') ?>">
+                                <li class="<?= is_active('activities/revenue-guidance-centre') ?>">
                                     <a class="dropdown-item "
-                                        href="<?= base_url('sardardham/revenue_guidance_centre'); ?>"><?= lang('revenue_guidance_centre'); ?></a>
+                                        href="<?= base_url('activities/revenue-guidance-centre'); ?>"><?= lang('revenue_guidance_centre'); ?></a>
                                 </li>
-                                <li class="<?= is_active('sardardham/medical_centre') ?>">
+                                <li class="<?= is_active('activities/medical-centre') ?>">
                                     <a class="dropdown-item "
-                                        href="<?= base_url('sardardham/medical_centre'); ?>"><?= lang('medical_centre'); ?></a>
+                                        href="<?= base_url('activities/medical-centre'); ?>"><?= lang('medical_centre'); ?></a>
                                 </li>
-                                <li class="<?= is_active('sardardham/business_development_center') ?>">
+                                <li class="<?= is_active('activities/business-development-center') ?>">
                                     <a class="dropdown-item "
-                                        href="<?= base_url('sardardham/business_development_center'); ?>"><?= lang('business_development_center'); ?></a>
+                                        href="<?= base_url('activities/business-development-center'); ?>"><?= lang('business_development_center'); ?></a>
                                 </li>
-                                <li class="<?= is_active('sardardham/trustee_guest_house') ?>">
+                                <li class="<?= is_active('activities/trustee-guest-house') ?>">
                                     <a class="dropdown-item "
-                                        href="<?= base_url('sardardham/trustee_guest_house'); ?>"><?= lang('trustee_guest_house'); ?></a>
+                                        href="<?= base_url('activities/trustee-guest-house'); ?>"><?= lang('trustee_guest_house'); ?></a>
                                 </li>
                             </ul>
                         </li>
 
                         <li class=" nav-item">
-                            <a class="nav-link <?= is_active('sardardham/spibo') ?>"
-                                href="<?= base_url('sardardham/spibo') ?>"><?= lang('lng_spibo'); ?></a>
+                            <a class="nav-link <?= is_active('spibo') ?>"
+                                href="<?= base_url('spibo') ?>"><?= lang('lng_spibo'); ?></a>
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle <?= is_active(['admission/ahmedabad', 'admission/bhuj_kutch', 'admission/hostel_facilities']) ?>"
+                            <a class="nav-link dropdown-toggle <?= is_active([ 'admission/ahmedabad', 'admission/bhuj_kutch', 'admission/hostel_facilities' ]) ?>"
                                 href="#" id="admissionDropdown" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false" data-bs-auto-close="outside">
                                 <?= lang('admission') ?>
@@ -317,46 +305,46 @@ if (empty($language)) {
                                 </li>
                                 <li class="<?= is_active('admission/ahmedabad') ?>">
                                     <a class="dropdown-item "
-                                        href="https://csc.sardardham.org/"><?= lang('ahmedabad'); ?></a>
+                                        href="https://csc.sardardham.org/?utm_source=sardardham.org"><?= lang('ahmedabad'); ?></a>
                                 </li>
                                 <li class="<?= is_active('admission/bhuj_kutch') ?>">
                                     <a class="dropdown-item "
-                                        href="https://bhuj.sardardham.org/"><?= lang('bhuj_kutch'); ?></a>
+                                        href="https://bhuj.sardardham.org/?utm_source=sardardham.org"><?= lang('bhuj_kutch'); ?></a>
                                 </li>
                             </ul>
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle <?= is_active(['update/news', 'update/event', 'gallery/video_gallery', 'gallery']) ?>"
+                            <a class="nav-link dropdown-toggle <?= is_active([ 'media/news', 'media/event', 'media/video-gallery', 'media/gallery' ]) ?>"
                                 href="#" id="mediaDropdown" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false" data-bs-auto-close="outside">
                                 <?= lang('gallery') ?>
                             </a>
 
                             <ul class="dropdown-menu" aria-labelledby="admissionDropdown">
-                                <li class="<?= is_active('update/news') ?>">
+                                <li class="<?= is_active('media/news') ?>">
                                     <a class="dropdown-item "
-                                        href="<?= base_url('update/news'); ?>"><?= lang('news_media') ?></a>
+                                        href="<?= base_url('media/news'); ?>"><?= lang('news_media') ?></a>
                                 </li>
-                                <li class="<?= is_active('update/event') ?>">
+                                <li class="<?= is_active('media/event') ?>">
                                     <a class="dropdown-item "
-                                        href="<?= base_url('update/event') ?>"><?= lang('event'); ?></a>
+                                        href="<?= base_url('media/event') ?>"><?= lang('event'); ?></a>
                                 </li>
-                                <li class="<?= is_active('gallery/video_gallery') ?>">
+                                <li class="<?= is_active('media/video-gallery') ?>">
                                     <a class="dropdown-item "
-                                        href="<?= base_url('gallery/video_gallery'); ?>"><?= lang('video_gallery'); ?></a>
+                                        href="<?= base_url('media/video-gallery'); ?>"><?= lang('video_gallery'); ?></a>
                                 </li>
-                                <li class="<?= is_active('gallery') ?>">
+                                <li class="<?= is_active('media/gallery') ?>">
                                     <a class="dropdown-item "
-                                        href="<?= base_url('gallery'); ?>"><?= lang('image_gallery'); ?></a>
+                                        href="<?= base_url('media/gallery'); ?>"><?= lang('image_gallery'); ?></a>
                                 </li>
                             </ul>
                         </li>
 
 
                         <li class=" nav-item">
-                            <a class="nav-link <?= is_active(['sardardham/donation', 'sardardham/donation_details']) ?>"
-                                href="<?= base_url('sardardham/donation') ?>"><?= lang('donation'); ?></a>
+                            <a class="nav-link <?= is_active([ 'donation', 'donation_details' ]) ?>"
+                                href="<?= base_url('donation') ?>"><?= lang('donation'); ?></a>
                         </li>
 
                         <!-- <li class="nav-item">
@@ -365,7 +353,7 @@ if (empty($language)) {
                         </li> -->
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle <?= is_active(['update/download', 'update/documentary']) ?>"
+                            <a class="nav-link dropdown-toggle <?= is_active([ 'update/download', 'update/documentary' ]) ?>"
                                 href="#" id="updateDropdown" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false" data-bs-auto-close="outside">
                                 <?= lang('update') ?>
@@ -387,8 +375,8 @@ if (empty($language)) {
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link <?= is_active('connect') ?>"
-                                href="<?= base_url('connect'); ?>"><?= lang('connect') ?>&nbsp;</a>
+                            <a class="nav-link <?= is_active('contact-us') ?>"
+                                href="<?= base_url('contact-us'); ?>"><?= lang('contact-us') ?>&nbsp;</a>
                         </li>
 
                     </ul>
@@ -562,7 +550,7 @@ if (empty($language)) {
     <?php $locations = queryLang()->order_by("sequence", "ASC")->get("location")->result(); ?>
     <div class="container-fluid pt-40 pb-40 location-section">
         <div class="row g-4">
-            <?php foreach ($locations as $l) { ?>
+            <?php foreach ( $locations as $l ) { ?>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-flex align-items-stretch">
                     <div class="card location-card shadow-lg w-100">
 

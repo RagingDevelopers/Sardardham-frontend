@@ -94,7 +94,6 @@
         <div class="card-body p-3">
             <table class="table table-striped" id="datatable">
                 
-                
             </table>
         </div>
     </div>

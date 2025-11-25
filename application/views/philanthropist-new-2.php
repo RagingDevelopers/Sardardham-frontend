@@ -1,5 +1,5 @@
 <?php
-$baseUrl = base_url('philanthropist');
+$baseUrl = base_url('about-us/philanthropist');
 $currentCategory = $selected_category ?? '';
 $currentZone = $selected_zone ?? '';
 $currentPage = $current_page ?? 1;
@@ -58,28 +58,32 @@ function q($base, $params = [])
         margin-bottom: 15px;
     } */
 
-        .design-3 .philanthropist-item {
-    background-color: #fff;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-    position: relative; /* Needed for absolute positioning */
-}
+    .design-3 .philanthropist-item {
+        background-color: #fff;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        position: relative;
+        /* Needed for absolute positioning */
+    }
 
-.design-3 .philanthropist-item::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-       width: 80%;
-    right: 112px;
-    border-bottom: 2px solid #4682b4;
-}
+    .design-3 .philanthropist-item {
+        padding-bottom: 13px !important;
+    }
 
+    .design-3 .philanthropist-item::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: 80%;
+        right: 112px;
+        border-bottom: 2px solid #4682b4;
+    }
 
     .design-3 .philanthropist-item img {
         width: 140px;
-        height: 120px;
+        height: 140px;
         object-fit: cover;
         border-radius: 4px;
         margin-right: 15px;
@@ -88,6 +92,9 @@ function q($base, $params = [])
     .design-3 .philanthropist-item .content {
         flex: 1;
         text-align: left;
+        position: relative;
+        z-index: 2;
+        transition: transform 0.35s ease, opacity 0.35s ease;
     }
 
     .design-3 .philanthropist-item h5 {
@@ -300,6 +307,94 @@ function q($base, $params = [])
             width: 100%;
         }
     }
+
+    /* =================================================
+       IMAGE-ONLY CIRCLE + HOVER ANIMATION
+       Scope: only .design-3 list images
+    ================================================== */
+
+    /* Wrap image link to host circle effects */
+    .design-3 .philanthropist-item a {
+        display: inline-block;
+        height: 140px;
+        width: 140px;
+        position: relative;
+        z-index: 1;
+        /* create stacking context for img + halo */
+    }
+
+    /* Halo / border holder (will carry box-shadow) */
+    .design-3 .philanthropist-item a::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #1369ce;
+        opacity: 0;
+        transform: scale(0.8);
+        transition: all 0.3s linear 0s;
+        z-index: -1;
+        /* behind the image */
+        box-shadow: 0 0 0 7px #f0f7f4;
+        /* halo effect */
+    }
+
+    /* White circle behind (optional subtle base ring) */
+    .design-3 .philanthropist-item a::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: #f0f7f4;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -2;
+    }
+
+    /* Make the image circular + animated */
+    .design-3 .philanthropist-item img {
+        width: 140px;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-right: 15px;
+        transform: scale(1);
+        transition: all 0.9s ease 0s;
+        position: relative;
+        z-index: 2;
+        /* above the halo */
+    }
+
+    /* On hover: show halo (box-shadow behind) + zoom image */
+    .design-3 .philanthropist-item:hover a::before {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+    .design-3 .philanthropist-item:hover img {
+        transform: scale(1.1);
+    }
+
+    /* =================================================
+       CONTENT SLIDE ANIMATION ON HOVER
+    ================================================== */
+
+    .design-3 .philanthropist-item:hover .content {
+        transform: translateX(15px);
+        transition: all 1s ease 0s;
+    }
+
+    @media only screen and (max-width: 600px) {
+
+        /* On mobile, keep content stable (no slide) */
+        .design-3 .philanthropist-item:hover .content {
+            transform: none;
+        }
+    }
 </style>
 
 <div class="inner-page">
@@ -323,7 +418,9 @@ function q($base, $params = [])
                         <ul class="nav nav-pills mb-3 gap-3 justify-content-center" id="category-tabs" role="tablist">
                             <?php foreach ($categories as $i => $cat): ?>
                                 <?php
-                                $isActive = ($currentCategory == $cat['id']) || (empty($currentCategory) && $i == 0);
+                                // $isActive = ($currentCategory == $cat['id']) || (empty($currentCategory) && $i == 0);
+                                $isActive = ($currentCategory == $cat['id']) ||
+                                    ($currentCategory == '' && $defaultCategoryId == $cat['id']);
                                 $catLink = q($baseUrl, [
                                     'category' => $cat['id'],
                                     'zone' => $currentZone,
