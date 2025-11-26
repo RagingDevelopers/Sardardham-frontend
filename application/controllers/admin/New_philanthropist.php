@@ -21,7 +21,7 @@ class New_philanthropist extends CI_Controller
             $this->session->userdata('admin_id') == "" ||
             $this->session->userdata('user_type') != "Admin"
         ) {
-            $message = array('message' => "Your Session has Been Expired.!!", 'class' => 'danger');
+            $message = array( 'message' => "Your Session has Been Expired.!!", 'class' => 'danger' );
             $this->session->set_flashdata('flash_message', $message);
             redirect(base_url('admin/login'), 'refresh');
         }
@@ -29,11 +29,11 @@ class New_philanthropist extends CI_Controller
 
     public function index()
     {
-        $page_data['cities'] = $this->db->get($this->t_city)->result_array();
+        $page_data['cities']     = $this->db->get($this->t_city)->result_array();
         $page_data['categories'] = $this->db->get($this->t_category)->result_array();
-        $page_data['zones'] = $this->db->get($this->t_zone)->result_array();
+        $page_data['zones']      = $this->db->get($this->t_zone)->result_array();
 
-        $page_data['page_name'] = "new_philanthropist";
+        $page_data['page_name']  = "new_philanthropist";
         $page_data['page_title'] = "Philanthropist";
         $this->load->view('admin/common', $page_data);
     }
@@ -49,27 +49,31 @@ class New_philanthropist extends CI_Controller
         $this->form_validation->set_rules('zone_id', 'Select Zone', 'trim|required|integer');
 
         if ($this->form_validation->run() === false) {
-            $message = array('message' => validation_errors(), 'class' => 'danger');
+            $message = array( 'message' => validation_errors(), 'class' => 'danger' );
             $this->session->set_flashdata('flash_message', $message);
             return redirect(site_url('admin/New_philanthropist'), 'refresh');
         }
 
         $data = array(
-            'eng_name' => $this->security->xss_clean($this->input->post('eng_name')),
-            'guj_name' => $this->security->xss_clean($this->input->post('guj_name')),
+            'eng_name'    => $this->security->xss_clean($this->input->post('eng_name')),
+            'guj_name'    => $this->security->xss_clean($this->input->post('guj_name')),
             'eng_company' => $this->security->xss_clean($this->input->post('eng_company')),
             'guj_company' => $this->security->xss_clean($this->input->post('guj_company')),
-            'city_id' => (int) $this->security->xss_clean($this->input->post('city_id')),
+            'city_id'     => (int) $this->security->xss_clean($this->input->post('city_id')),
             'category_id' => (int) $this->security->xss_clean($this->input->post('category_id')),
-            'zone_id' => (int) $this->security->xss_clean($this->input->post('zone_id')),
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s'),
+            'zone_id'     => (int) $this->security->xss_clean($this->input->post('zone_id')),
+            'created_at'  => date('Y-m-d H:i:s'),
+            'updated_at'  => date('Y-m-d H:i:s'),
         );
 
         if (!empty($_FILES['photo']['name'])) {
-            $upload = $this->_upload_image('photo');
+            
+            $slug = strtolower(url_title($data['eng_name'], '-', TRUE));
+            $newName = "philanthropist-" . $slug ;
+            
+            $upload = $this->_upload_image('photo',null,$newName);
             if ($upload['status'] === false) {
-                $message = array('message' => $upload['error'], 'class' => 'danger');
+                $message = array( 'message' => $upload['error'], 'class' => 'danger' );
                 $this->session->set_flashdata('flash_message', $message);
                 return redirect(site_url('admin/New_philanthropist'), 'refresh');
             }
@@ -79,8 +83,8 @@ class New_philanthropist extends CI_Controller
         $ok = $this->db->insert($this->t_philanthropists, $data);
 
         $message = $ok
-            ? array('message' => "Philanthropist Created Successfully", 'class' => 'success')
-            : array('message' => "Failed to Create Philanthropist", 'class' => 'danger');
+            ? array( 'message' => "Philanthropist Created Successfully", 'class' => 'success' )
+            : array( 'message' => "Failed to Create Philanthropist", 'class' => 'danger' );
 
         $this->session->set_flashdata('flash_message', $message);
         return redirect(site_url('admin/New_philanthropist'), 'refresh');
@@ -90,13 +94,13 @@ class New_philanthropist extends CI_Controller
     {
         $id = (int) $this->security->xss_clean($id);
 
-        $page_data['cities'] = $this->db->get($this->t_city)->result_array();
+        $page_data['cities']     = $this->db->get($this->t_city)->result_array();
         $page_data['categories'] = $this->db->get($this->t_category)->result_array();
-        $page_data['zones'] = $this->db->get($this->t_zone)->result_array();
+        $page_data['zones']      = $this->db->get($this->t_zone)->result_array();
 
-        $page_data['page_name'] = "new_philanthropist";
+        $page_data['page_name']  = "new_philanthropist";
         $page_data['page_title'] = "Philanthropist";
-        $page_data['row_data'] = $this->db->get_where($this->t_philanthropists, array('id' => $id))->row_array();
+        $page_data['row_data']   = $this->db->get_where($this->t_philanthropists, array( 'id' => $id ))->row_array();
         $this->load->view('admin/common', $page_data);
     }
 
@@ -104,7 +108,7 @@ class New_philanthropist extends CI_Controller
     {
         $id = (int) $this->security->xss_clean($id);
         if (!$id) {
-            $this->session->set_flashdata('flash_message', array('message' => 'Invalid ID', 'class' => 'danger'));
+            $this->session->set_flashdata('flash_message', array( 'message' => 'Invalid ID', 'class' => 'danger' ));
             return redirect(site_url('admin/New_philanthropist'), 'refresh');
         }
 
@@ -117,33 +121,37 @@ class New_philanthropist extends CI_Controller
         $this->form_validation->set_rules('zone_id', 'Select Zone', 'trim|required|integer');
 
         if ($this->form_validation->run() === false) {
-            $message = array('message' => validation_errors(), 'class' => 'danger');
+            $message = array( 'message' => validation_errors(), 'class' => 'danger' );
             $this->session->set_flashdata('flash_message', $message);
             return redirect(site_url('admin/New_philanthropist/edit/' . $id), 'refresh');
         }
 
-        $existing = $this->db->get_where($this->t_philanthropists, array('id' => $id))->row_array();
+        $existing = $this->db->get_where($this->t_philanthropists, array( 'id' => $id ))->row_array();
         if (!$existing) {
-            $this->session->set_flashdata('flash_message', array('message' => 'Record not found', 'class' => 'danger'));
+            $this->session->set_flashdata('flash_message', array( 'message' => 'Record not found', 'class' => 'danger' ));
             return redirect(site_url('admin/New_philanthropist'), 'refresh');
         }
 
         $data = array(
-            'eng_name' => $this->security->xss_clean($this->input->post('eng_name')),
-            'guj_name' => $this->security->xss_clean($this->input->post('guj_name')),
+            'eng_name'    => $this->security->xss_clean($this->input->post('eng_name')),
+            'guj_name'    => $this->security->xss_clean($this->input->post('guj_name')),
             'eng_company' => $this->security->xss_clean($this->input->post('eng_company')),
             'guj_company' => $this->security->xss_clean($this->input->post('guj_company')),
-            'city_id' => (int) $this->security->xss_clean($this->input->post('city_id')),
+            'city_id'     => (int) $this->security->xss_clean($this->input->post('city_id')),
             'category_id' => (int) $this->security->xss_clean($this->input->post('category_id')),
-            'zone_id' => (int) $this->security->xss_clean($this->input->post('zone_id')),
-            'updated_at' => date('Y-m-d H:i:s'),
+            'zone_id'     => (int) $this->security->xss_clean($this->input->post('zone_id')),
+            'updated_at'  => date('Y-m-d H:i:s'),
         );
 
         if (!empty($_FILES['photo']['name'])) {
             $old_file = !empty($existing[$this->image_col]) ? $existing[$this->image_col] : null;
-            $upload = $this->_upload_image('photo', $old_file);
+
+            $slug = strtolower(url_title($data['eng_name'], '-', TRUE));
+            $newName = "philanthropist-{$slug}";
+
+            $upload   = $this->_upload_image('photo', $old_file,$newName);
             if ($upload['status'] === false) {
-                $message = array('message' => $upload['error'], 'class' => 'danger');
+                $message = array( 'message' => $upload['error'], 'class' => 'danger' );
                 $this->session->set_flashdata('flash_message', $message);
                 return redirect(site_url('admin/New_philanthropist/edit/' . $id), 'refresh');
             }
@@ -154,8 +162,8 @@ class New_philanthropist extends CI_Controller
         $ok = $this->db->update($this->t_philanthropists, $data);
 
         $message = $ok
-            ? array('message' => "Philanthropist Updated Successfully", 'class' => 'success')
-            : array('message' => "Failed to Update Philanthropist", 'class' => 'danger');
+            ? array( 'message' => "Philanthropist Updated Successfully", 'class' => 'success' )
+            : array( 'message' => "Failed to Update Philanthropist", 'class' => 'danger' );
 
         $this->session->set_flashdata('flash_message', $message);
         return redirect(site_url('admin/New_philanthropist'), 'refresh');
@@ -165,17 +173,17 @@ class New_philanthropist extends CI_Controller
     {
         $id = (int) $this->security->xss_clean($id);
         if (!$id) {
-            $this->session->set_flashdata('flash_message', array('message' => 'Invalid ID', 'class' => 'danger'));
+            $this->session->set_flashdata('flash_message', array( 'message' => 'Invalid ID', 'class' => 'danger' ));
             return redirect(site_url('admin/New_philanthropist'), 'refresh');
         }
 
-        $row = $this->db->get_where($this->t_philanthropists, array('id' => $id))->row_array();
+        $row = $this->db->get_where($this->t_philanthropists, array( 'id' => $id ))->row_array();
         if ($row && !empty($row[$this->image_col])) {
             $this->_try_unlink($row[$this->image_col]);
         }
 
-        $media_rows = $this->db->get_where($this->t_media, array('title_id' => $id))->result_array();
-        foreach ($media_rows as $m) {
+        $media_rows = $this->db->get_where($this->t_media, array( 'title_id' => $id ))->result_array();
+        foreach ( $media_rows as $m ) {
             if (!empty($m[$this->media_file_col])) {
                 $this->_try_unlink($m[$this->media_file_col]);
             }
@@ -185,8 +193,8 @@ class New_philanthropist extends CI_Controller
         $ok = $this->db->where('id', $id)->delete($this->t_philanthropists);
 
         $message = $ok
-            ? array('message' => "Philanthropist Deleted Successfully", 'class' => 'success')
-            : array('message' => "Failed to Delete Philanthropist", 'class' => 'danger');
+            ? array( 'message' => "Philanthropist Deleted Successfully", 'class' => 'success' )
+            : array( 'message' => "Failed to Delete Philanthropist", 'class' => 'danger' );
 
         $this->session->set_flashdata('flash_message', $message);
         return redirect(site_url('admin/New_philanthropist'), 'refresh');
@@ -194,14 +202,14 @@ class New_philanthropist extends CI_Controller
 
     public function add_img()
     {
-        $page_data['page_name'] = "add_img";
+        $page_data['page_name']  = "add_img";
         $page_data['page_title'] = "Add Image";
 
         $this->db->select($this->t_media . '.*, p.eng_name as philanthropist_name');
         $this->db->from($this->t_media);
         $this->db->join($this->t_philanthropists . ' as p', $this->t_media . '.title_id = p.id', 'left');
 
-        $page_data['data'] = $this->db->get()->result_array();
+        $page_data['data']            = $this->db->get()->result_array();
         $page_data['philanthropists'] = $this->db->get($this->t_philanthropists)->result_array();
 
         $this->load->view('admin/common', $page_data);
@@ -212,7 +220,7 @@ class New_philanthropist extends CI_Controller
         $this->form_validation->set_rules('sequence', 'sequence', 'trim|required|integer');
 
         if ($this->form_validation->run() === false) {
-            $message = array('message' => validation_errors(), 'class' => 'danger');
+            $message = array( 'message' => validation_errors(), 'class' => 'danger' );
             $this->session->set_flashdata('flash_message', $message);
             return redirect(site_url('admin/New_philanthropist/add_img'), 'refresh');
         }
@@ -223,17 +231,17 @@ class New_philanthropist extends CI_Controller
         if (!empty($_FILES['photo']['name'])) {
             $upload = $this->_upload_image('photo');
             if ($upload['status'] === false) {
-                $message = array('message' => $upload['error'], 'class' => 'danger');
+                $message = array( 'message' => $upload['error'], 'class' => 'danger' );
                 $this->session->set_flashdata('flash_message', $message);
                 return redirect(site_url('admin/New_philanthropist/add_img'), 'refresh');
             }
             $data[$this->media_file_col] = $upload['file_name'];
         }
 
-        $ok = $this->db->insert($this->t_media, $data);
+        $ok      = $this->db->insert($this->t_media, $data);
         $message = $ok
-            ? array('message' => "Image Created Successfully", 'class' => 'success')
-            : array('message' => "Failed to Create Image", 'class' => 'danger');
+            ? array( 'message' => "Image Created Successfully", 'class' => 'success' )
+            : array( 'message' => "Failed to Create Image", 'class' => 'danger' );
 
         $this->session->set_flashdata('flash_message', $message);
         return redirect(site_url('admin/New_philanthropist/add_img'), 'refresh');
@@ -243,10 +251,10 @@ class New_philanthropist extends CI_Controller
     {
         $id = (int) $this->security->xss_clean($id);
 
-        $page_data['page_title'] = 'Add Image';
-        $page_data['page_name'] = 'add_img';
-        $page_data['row_data'] = $this->db->get_where($this->t_media, array('id' => $id))->row_array();
-        $page_data['data'] = $this->db->get($this->t_media)->result_array();
+        $page_data['page_title']      = 'Add Image';
+        $page_data['page_name']       = 'add_img';
+        $page_data['row_data']        = $this->db->get_where($this->t_media, array( 'id' => $id ))->row_array();
+        $page_data['data']            = $this->db->get($this->t_media)->result_array();
         $page_data['philanthropists'] = $this->db->get($this->t_philanthropists)->result_array();
 
         $this->load->view('admin/common', $page_data);
@@ -259,7 +267,7 @@ class New_philanthropist extends CI_Controller
         $this->form_validation->set_rules('sequence', 'sequence', 'trim|required|integer');
 
         if ($this->form_validation->run() === false) {
-            $message = array('message' => validation_errors(), 'class' => 'danger');
+            $message = array( 'message' => validation_errors(), 'class' => 'danger' );
             $this->session->set_flashdata('flash_message', $message);
             return redirect(site_url('admin/New_philanthropist/data_edit/' . $id), 'refresh');
         }
@@ -268,13 +276,13 @@ class New_philanthropist extends CI_Controller
         $data['sequence'] = (int) $this->security->xss_clean($this->input->post('sequence'));
 
         if (!empty($_FILES['photo']['name'])) {
-            $old = $this->db->get_where($this->t_media, array('id' => $id))->row($this->media_file_col);
+            $old = $this->db->get_where($this->t_media, array( 'id' => $id ))->row($this->media_file_col);
             if (!empty($old)) {
                 $this->_try_unlink($old);
             }
             $upload = $this->_upload_image('photo');
             if ($upload['status'] === false) {
-                $message = array('message' => $upload['error'], 'class' => 'danger');
+                $message = array( 'message' => $upload['error'], 'class' => 'danger' );
                 $this->session->set_flashdata('flash_message', $message);
                 return redirect(site_url('admin/New_philanthropist/data_edit/' . (int) $id), 'refresh');
             }
@@ -285,8 +293,8 @@ class New_philanthropist extends CI_Controller
         $ok = $this->db->update($this->t_media, $data);
 
         $message = $ok
-            ? array('message' => "Image Updated Successfully", 'class' => 'success')
-            : array('message' => "Failed to Update Image", 'class' => 'danger');
+            ? array( 'message' => "Image Updated Successfully", 'class' => 'success' )
+            : array( 'message' => "Failed to Update Image", 'class' => 'danger' );
 
         $this->session->set_flashdata('flash_message', $message);
         return redirect(site_url('admin/New_philanthropist/add_img'), 'refresh');
@@ -296,7 +304,7 @@ class New_philanthropist extends CI_Controller
     {
         $id = (int) $this->security->xss_clean($id);
 
-        $row = $this->db->get_where($this->t_media, array('id' => $id))->row_array();
+        $row = $this->db->get_where($this->t_media, array( 'id' => $id ))->row_array();
         if ($row && !empty($row[$this->media_file_col])) {
             $this->_try_unlink($row[$this->media_file_col]);
         }
@@ -304,8 +312,8 @@ class New_philanthropist extends CI_Controller
         $ok = $this->db->where('id', $id)->delete($this->t_media);
 
         $message = $ok
-            ? array('message' => "Image Deleted Successfully", 'class' => 'success')
-            : array('message' => "Failed to Delete Image", 'class' => 'danger');
+            ? array( 'message' => "Image Deleted Successfully", 'class' => 'success' )
+            : array( 'message' => "Failed to Delete Image", 'class' => 'danger' );
 
         $this->session->set_flashdata('flash_message', $message);
         return redirect(site_url('admin/New_philanthropist/add_img'), 'refresh');
@@ -313,16 +321,16 @@ class New_philanthropist extends CI_Controller
 
     public function fetch_data()
     {
-        $main_table = $this->t_philanthropists;
+        $main_table      = $this->t_philanthropists;
         $controller_name = 'admin/New_philanthropist';
 
-        $start = (int) ($this->input->post('start') ?? 0);
-        $length = (int) ($this->input->post('length') ?? 10);
-        $order = $this->input->post('order') ?? [];
-        $order_idx = isset($order[0]['column']) ? (int) $order[0]['column'] : 0;
+        $start         = (int) ($this->input->post('start') ?? 0);
+        $length        = (int) ($this->input->post('length') ?? 10);
+        $order         = $this->input->post('order') ?? [];
+        $order_idx     = isset($order[0]['column']) ? (int) $order[0]['column'] : 0;
         $order_dir_raw = strtolower($order[0]['dir'] ?? 'asc');
-        $order_dir = $order_dir_raw === 'desc' ? 'DESC' : 'ASC';
-        $search_value = trim($this->input->post('search')['value'] ?? '');
+        $order_dir     = $order_dir_raw === 'desc' ? 'DESC' : 'ASC';
+        $search_value  = trim($this->input->post('search')['value'] ?? '');
 
         $orderable_columns = [
             'p.id',          // 0 ID (unused in output)
@@ -379,19 +387,19 @@ class New_philanthropist extends CI_Controller
 
         $rows = $this->db->get()->result_array();
 
-        $data = [];
+        $data   = [];
         $serial = $start + 1;
-        foreach ($rows as $row) {
-            $edit_url = base_url($controller_name . '/edit/' . $row['id']);
+        foreach ( $rows as $row ) {
+            $edit_url   = base_url($controller_name . '/edit/' . $row['id']);
             $delete_url = base_url($controller_name . '/delete/' . $row['id']);
 
-            $actions = '<a href="' . $edit_url . '" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a> ';
+            $actions  = '<a href="' . $edit_url . '" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a> ';
             $actions .= '<a href="' . $delete_url . '" class="btn btn-sm btn-danger" onclick="return confirm(\'Are you sure you want to delete?\')"><i class="fa fa-trash"></i></a>';
 
-            $company = $row['eng_company'] ? $row['eng_company'] . ' (' . $row['guj_company'] . ')' : '';
-            $city = $row['city_eng_name'] ? $row['city_eng_name'] . ' (' . $row['city_guj_name'] . ')' : '';
+            $company  = $row['eng_company'] ? $row['eng_company'] . ' (' . $row['guj_company'] . ')' : '';
+            $city     = $row['city_eng_name'] ? $row['city_eng_name'] . ' (' . $row['city_guj_name'] . ')' : '';
             $category = $row['category_eng_name'] ? $row['category_eng_name'] . ' (' . $row['category_guj_name'] . ')' : '';
-            $zone = $row['zone_eng_name'] ? $row['zone_eng_name'] . ' (' . $row['zone_guj_name'] . ')' : '';
+            $zone     = $row['zone_eng_name'] ? $row['zone_eng_name'] . ' (' . $row['zone_guj_name'] . ')' : '';
 
             $image = '<a href="' . base_url('/upload/' . $row['image']) . '" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>';
 
@@ -432,10 +440,10 @@ class New_philanthropist extends CI_Controller
         $recordsFiltered = $this->db->count_all_results();
 
         $response = [
-            'draw' => (int) ($this->input->post('draw') ?? 0),
-            'recordsTotal' => $recordsTotal,
+            'draw'            => (int) ($this->input->post('draw') ?? 0),
+            'recordsTotal'    => $recordsTotal,
             'recordsFiltered' => $recordsFiltered,
-            'data' => $data,
+            'data'            => $data,
         ];
 
         echo json_encode($response);
@@ -443,13 +451,13 @@ class New_philanthropist extends CI_Controller
 
     public function get_data()
     {
-        $main_table = $this->t_media;
+        $main_table      = $this->t_media;
         $controller_name = 'admin/New_philanthropist';
 
-        $start = (int) ($this->input->post('start') ?? 0);
-        $length = (int) ($this->input->post('length') ?? 10);
+        $start        = (int) ($this->input->post('start') ?? 0);
+        $length       = (int) ($this->input->post('length') ?? 10);
         $order_column = (int) ($this->input->post('order')[0]['column'] ?? 0);
-        $order_dir = ($this->input->post('order')[0]['dir'] ?? 'asc');
+        $order_dir    = ($this->input->post('order')[0]['dir'] ?? 'asc');
         $search_value = trim($this->input->post('search')['value'] ?? '');
 
         $orderable_columns = [
@@ -480,12 +488,12 @@ class New_philanthropist extends CI_Controller
         $rows = $this->db->get()->result_array();
 
         $formatted = [];
-        $serial = $start + 1;
-        foreach ($rows as $row) {
-            $edit_url = base_url($controller_name . '/data_edit/' . $row['id']);
-            $delete_url = base_url($controller_name . '/data_delete/' . $row['id']);
-            $actions = '<a href="' . $edit_url . '" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a> ';
-            $actions .= '<a href="' . $delete_url . '" class="btn btn-sm btn-danger" onclick="return confirm(\'Are you sure you want to delete?\')"><i class="fa fa-trash"></i></a>';
+        $serial    = $start + 1;
+        foreach ( $rows as $row ) {
+            $edit_url    = base_url($controller_name . '/data_edit/' . $row['id']);
+            $delete_url  = base_url($controller_name . '/data_delete/' . $row['id']);
+            $actions     = '<a href="' . $edit_url . '" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a> ';
+            $actions    .= '<a href="' . $delete_url . '" class="btn btn-sm btn-danger" onclick="return confirm(\'Are you sure you want to delete?\')"><i class="fa fa-trash"></i></a>';
 
             $view = '';
             if (!empty($row[$this->media_file_col])) {
@@ -516,47 +524,52 @@ class New_philanthropist extends CI_Controller
         $total_filtered = $this->db->count_all_results();
 
         $response = array(
-            "draw" => (int) ($this->input->post('draw') ?? 0),
-            "recordsTotal" => $total_records,
+            "draw"            => (int) ($this->input->post('draw') ?? 0),
+            "recordsTotal"    => $total_records,
             "recordsFiltered" => $total_filtered,
-            "data" => $formatted
+            "data"            => $formatted
         );
 
         echo json_encode($response);
     }
 
-    private function _upload_image($field_name, $old_file = null)
+    private function _upload_image($field_name, $old_file = null, $custom_name = null)
     {
         $upload_path = FCPATH . $this->upload_dir;
         if (!is_dir($upload_path)) {
             @mkdir($upload_path, 0755, true);
         }
 
-        $ext = pathinfo($_FILES[$field_name]['name'], PATHINFO_EXTENSION);
+
+        if (!empty($old_file)) {
+            $this->_try_unlink($old_file);
+        }
+
+        $ext  = pathinfo($_FILES[$field_name]['name'], PATHINFO_EXTENSION);
         $rand = substr(md5(microtime(true)), mt_rand(0, 26), 3);
-        $new_name = date('YmdHis') . $rand . '.' . strtolower($ext);
+        if ($custom_name !== null) {
+            $new_name = $custom_name . '.' . strtolower($ext);
+        } else {
+            $new_name = date('YmdHis') . $rand . '.' . strtolower($ext);
+        }
 
         $config = array(
-            'upload_path' => $upload_path,
+            'upload_path'   => $upload_path,
             'allowed_types' => $this->allowed_images,
-            'max_size' => 30 * 1024, // 30 MB (KB)
-            'file_name' => $new_name,
+            'max_size'      => 30 * 1024, // 30 MB (KB)
+            'file_name'     => $new_name,
         );
 
         $this->load->library('upload', $config);
         $this->upload->initialize($config);
 
         if (!$this->upload->do_upload($field_name)) {
-            return array('status' => false, 'error' => $this->upload->display_errors('', ''));
+            return array( 'status' => false, 'error' => $this->upload->display_errors('', '') );
         }
 
         $saved = $this->upload->data('file_name');
 
-        if (!empty($old_file)) {
-            $this->_try_unlink($old_file);
-        }
-
-        return array('status' => true, 'file_name' => $saved);
+        return array( 'status' => true, 'file_name' => $saved );
     }
 
     private function _try_unlink($filename)

@@ -188,29 +188,7 @@ class Philanthropist extends MY_Controller
         return $this->db->count_all_results();
     }
 
-    public function new()
-    {
-        $page_data['page_name'] = "philanthropist-new-2";
-        $page_data['page_title'] = "Philanthropists";
-        $page_data['philanthropists'] = $this->getPhilanthropist(20, 0);
-        $this->load->view('common', $page_data);
-    }
 
-    public function new2()
-    {
-        $page_data['page_name'] = "philanthropist-new-2";
-        $page_data['page_title'] = "Philanthropists";
-        $page_data['philanthropists'] = $this->getPhilanthropist(20, 0);
-        $this->load->view('common', $page_data);
-    }
-
-    public function new3()
-    {
-        $page_data['page_name'] = "philanthropist-new-3";
-        $page_data['page_title'] = "Philanthropists";
-        $page_data['philanthropists'] = $this->getPhilanthropist(20, 0);
-        $this->load->view('common', $page_data);
-    }
 
     private function build_list_html($philanthropists)
     {
@@ -339,6 +317,81 @@ class Philanthropist extends MY_Controller
         <?php
         endif;
         return ob_get_clean();
+    }
+
+
+    public function import_csv()
+    {
+        $csvFile = FCPATH . "assets/data.csv";  // <-- your CSV path
+        $imgSourcePath = FCPATH . "assets/img/";     // folder that has images
+        $imgUploadPath = FCPATH . "upload/"; // destination folder
+
+        if (!file_exists($csvFile)) {
+            echo "CSV file not found!";
+            return;
+        }
+
+        // open CSV
+        if (($handle = fopen($csvFile, "r")) !== FALSE) {
+
+            $row = 0;
+
+            while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+
+                // skip header row
+                if ($row == 0) { 
+                    $row++; 
+                    continue; 
+                }
+
+                // CSV Column C → index 2
+                $csv_name = trim($data[2]);
+
+                // find row in DB
+                $record = $this->db->where('eng_name', $csv_name)
+                                   ->get('philanthropist')
+                                   ->row();
+
+                if ($record) {
+
+                    // image name in source folder (e.g. "1.png")
+                    $sourceImage = $row . ".png"; // or from CSV if column exists
+
+                    $from = $imgSourcePath . $sourceImage;
+
+                    if (file_exists($from)) {
+
+                         $slug = strtolower(url_title($record->eng_name, '-', TRUE));
+
+                        $newName = "philanthropist-" . $slug . ".png";
+                        $to = $imgUploadPath . $newName;
+
+                        if(!file_exists($to)) {
+
+                            copy($from, $to);
+                        }
+
+
+                        $this->db->where('id', $record->id)
+                                 ->update('philanthropist', [
+                                     'image' => $newName
+                                 ]);
+
+                        echo "Updated: " . $csv_name . " → " . $newName . "<br>";
+
+                    } else {
+                        echo "Image missing for row: $row ($sourceImage)<br>";
+                    }
+
+                } else {
+                    echo "No DB match for: " . $csv_name . "<br>";
+                }
+
+                $row++;
+            }
+
+            fclose($handle);
+        }
     }
 }
 ?>
