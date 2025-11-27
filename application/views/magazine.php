@@ -41,7 +41,7 @@
     }
   }
 
-  .card {
+  .card1 {
     list-style: none;
     position: relative;
     border-radius: var(--spacing-l);
@@ -51,7 +51,7 @@
 
   }
 
-  .card:before {
+  .card1:before {
     content: '';
     display: block;
     padding-bottom: 150%;
@@ -76,7 +76,7 @@
   }
 
 
-  .card:hover .card__background {
+  .card1:hover .card__background {
     transform: scale(1.05) translateZ(0);
   }
 
@@ -120,6 +120,16 @@
     background: linear-gradient(90deg, #0e9ea8 0, #43e794 100%);
     padding: 10px 28px;
   }
+
+  #building-projects {
+    scroll-margin-top: 80px;
+  }
+
+  .content-box {
+    max-width: 90%;
+    font-size: 18px;
+    line-height: 1.7;
+  }
 </style>
 
 <!-- <section id="page-title-area">-->
@@ -136,12 +146,30 @@
 
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 
-
-<div class="container">
-  <div class="section-title pt-4 mb-0">
-    <h2><b>Magazine</b></h2>
-    <div class="bar"></div>
+<section id="building-projects" class="pt-20 pb-20">
+  <div class="text-center mb-2">
+    <h2><b><?= lang('ek_vichar_title'); ?></b></h2>
+    <div class="bar mx-auto"></div>
+    <p>
+      <?= lang('ek_vichar_sub_title_1'); ?>
+    </p>
   </div>
+
+  <div class="content-box bg-white p-4 rounded-3 shadow-sm mx-auto mb-3">
+    <span>
+      <?= lang('ek_vichar_1'); ?>
+    </span>
+    <span>
+      <?= lang('ek_vichar_2'); ?>
+    </span>
+    <span>
+      <?= lang('ek_vichar_3'); ?>
+    </span>
+  </div>
+
+
+</section>
+<div class="container content-box bg-white p-4 rounded-3 shadow-sm mx-auto mb-3">
   <div class="form-group">
     <p style="color: #111; overflow:hidden;" data-aos="fade-right" data-aos-duration="1000">
       <?= $magazine_content->description ?? "" ?>
@@ -151,14 +179,14 @@
     <?php for ($x = 0; $x < count($year); $x++) { ?>
       <li class="nav-item" role="presentation">
         <button class="nav-link  year-btn <?php if ($x == 0) {
-          echo 'active';
-        } ?>" data-year="<?= $year[$x]['year']; ?>" id="pill-<?= $year[$x]['year']; ?>"
+                                            echo 'active';
+                                          } ?>" data-year="<?= $year[$x]['year']; ?>" id="pill-<?= $year[$x]['year']; ?>"
           data-id="<?= $year[$x]['year']; ?>" data-bs-toggle="pill" data-bs-target="#tab-<?= $year[$x]['year']; ?>"
           type="button" role="tab" aria-controls="<?= $year[$x]['year']; ?>" aria-selected="<?php if ($x == 0) {
-              echo 'true';
-            } else {
-              echo 'false';
-            } ?>"><?= $year[$x]['year']; ?></button>
+                                                                                              echo 'true';
+                                                                                            } else {
+                                                                                              echo 'false';
+                                                                                            } ?>"><?= $year[$x]['year']; ?></button>
       </li>
     <?php } ?>
   </ul>
@@ -167,9 +195,11 @@
 </div>
 
 <script>
-  $(".year-btn").click(function () {
+  $(".year-btn").click(function() {
     var currentBtn = $(this);
-    var { year } = currentBtn.data();
+    var {
+      year
+    } = currentBtn.data();
     var loader = $(".image-loader");
 
     loader.removeClass("d-none");
@@ -181,7 +211,7 @@
       data: ({
         year,
       }),
-      success: function (response) {
+      success: function(response) {
         $('.magazine-ajax').html(response);
         AOS.init();
         $($(id).find('ul').children('li')[0]).trigger('click');

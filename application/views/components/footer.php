@@ -158,7 +158,7 @@
                     <li><a href="<?= base_url('about-us/sardardham-a-thought'); ?>"><?php echo lang('thought'); ?></a></li>
                     <li><a href="<?= base_url('about-us/team-sardardham'); ?>"><?= lang('team'); ?></a></li>
                     <li><a href="<?= base_url('about-us/mission-vision-goal'); ?>"><?= lang('mission_vision_goal'); ?></a></li>
-                    <li><a href="<?= base_url('media/event'); ?>"><?= lang('event'); ?></a></li>
+                    <!-- <li><a href="<?= base_url('media/event'); ?>"><?= lang('event'); ?></a></li> -->
                     <li><a href="<?= base_url('donation'); ?>"><?= lang('donation'); ?></a></li>
                     <li><a href="<?= base_url('contact-us'); ?>"><?= lang('connect') ?></a></li>
                 </ul>
@@ -190,40 +190,41 @@
                         </a>
                     </li>
                     <li>
-                        <a href="<?= base_url('activities/scholarship-scheme') ?>"
-                            class="<?= is_active('activities/scholarship-scheme') ?>">
-                            <?= lang('dr_chittaranjanbhai'); ?>
+                        <a href="<?= base_url('activities/higher-education-assistance-scheme') ?>"
+                            class="<?= is_active('activities/higher-education-assistance-scheme') ?>">
+                            <?= lang('higher_education_sardardham'); ?>
                         </a>
                     </li>
                     <li>
-                        <a href="<?= base_url('activities/update'); ?>" class="<?= is_active('activities/update') ?>">
-                            <?= lang('ek_vichar_magazine'); ?>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?= base_url('activities/revenue-guidance-centre') ?>"
-                            class="<?= is_active('activities/revenue-guidance-centre') ?>">
-                            <?= lang('revenue_guidance_centre'); ?>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?= base_url('activities/medical-centre'); ?>"
+                        <a href="<?= base_url('activities/medical-centre') ?>"
                             class="<?= is_active('activities/medical-centre') ?>">
                             <?= lang('medical_centre'); ?>
                         </a>
                     </li>
                     <li>
-                        <a href="<?= base_url('activities/business-development-center') ?>"
+                        <a href="<?= base_url('activities/business-development-center'); ?>"
                             class="<?= is_active('activities/business-development-center') ?>">
                             <?= lang('business_development_center'); ?>
                         </a>
                     </li>
                     <li>
+                        <a href="<?= base_url('activities/hospitality-center') ?>"
+                            class="<?= is_active('activities/hospitality-center') ?>">
+                            <?= lang('hospitality_center'); ?>
+                        </a>
+                    </li>
+                    <!-- <li>
                         <a href="<?= base_url('activities/trustee-guest-house') ?>"
                             class="<?= is_active('activities/trustee-guest-house') ?>">
                             <?= lang('trustee_guest_house'); ?>
                         </a>
+                    </li> -->
+                    <li>
+                        <a href="<?= base_url('activities/ek-vichar-magazine'); ?>" class="<?= is_active('activities/ek-vichar-magazine') ?>">
+                            <?= lang('ek_vichar_magazine'); ?>
+                        </a>
                     </li>
+                    
                 </ul>
             </div>
 
@@ -232,7 +233,7 @@
 
                 <div class="col">
                     <h4><?= lang('connect') ?></h4>
-                    <h4 class="mb-4" style="color: #0b3d91;">Sardardham</h4>
+                    <h4 class="mb-4" style="color: #0b3d91;"><?= lang('sardardham') ?></h4>
 
                     <div class="footer-contact-sec">
                         <div class="contact-item">

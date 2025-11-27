@@ -49,16 +49,16 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="exampleInputFile111">PDF<span class="text-danger">*</span></label>
+                                <label for="exampleInputFile111">PDF & JPG<span class="text-danger">*</span></label>
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" name="pdf" class="custom-file-input" id="exampleInputFile11" <?php if(!isset($row_data)){ echo 'required'; } ?>>
-                                        <label class="custom-file-label" for="exampleInputFile11">Choose PDF</label>
+                                        <label class="custom-file-label" for="exampleInputFile11">Choose PDF & JPG</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Status <span class="text-danger">*</span></label>
                                 <select name="status" class="form-control" required>
@@ -70,6 +70,13 @@
                                         <?php  }?>
                                 </select>
                             </div>
+                        </div> -->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="title">PDF Button Title <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                <input type="text" name="button_title" value="<?php if(isset($row_data)){ echo $row_data['button_title']; } ?>" class="form-control" id="title" placeholder="PDF Button title" required>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -77,6 +84,26 @@
                             <div class="form-group">
                                 <label for="redirect_url">Redirect URL</label>
                                 <input type="text" name="redirect_url" value="<?php if(isset($row_data)){ echo $row_data['redirect_url']; } ?>" class="form-control" id="redirect_url" placeholder="Enter Url">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="url_title">Redirect Button Title <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                <input type="text" name="redirect_url_title" value="<?php if(isset($row_data)){ echo $row_data['redirect_url_title']; } ?>" class="form-control" id="url_title" placeholder="Redirect Button title" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                           <div class="form-group">
+                                <label for="exampleInputFile">Photo<span class="text-danger">*</span>&nbsp;&nbsp;(406px X 500 px)</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" name="photo" class="custom-file-input" id="exampleInputFile1" <?php if(!isset($row_data)){ echo 'required'; } ?>>
+                                        <label class="custom-file-label" for="exampleInputFile1">Choose Photo</label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -90,17 +117,8 @@
                             </div>
                         </div>
                     </div>
-                   <div class="form-group">
-                        <label for="exampleInputFile">Photo<span class="text-danger">*</span>&nbsp;&nbsp;(406px X 500 px)</label>
-                        <div class="input-group">
-                            <div class="custom-file">
-                                <input type="file" name="photo" class="custom-file-input" id="exampleInputFile1" <?php if(!isset($row_data)){ echo 'required'; } ?>>
-                                <label class="custom-file-label" for="exampleInputFile1">Choose Photo</label>
-                            </div>
-                        </div>
-                    </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail2">Event Date<span class="text-danger">*</span></label>
+                        <label for="exampleInputEmail2">Event End Date<span class="text-danger">*</span></label>
                         <input type="date" name="event_date" value="<?php if(isset($row_data)){ echo $row_data['event_date']; } ?>" class="form-control" id="exampleInputEmail2" placeholder="Enter event_date" required>
                     </div>
                     <!--<div class="form-group">-->
@@ -176,7 +194,8 @@ $(document).ready(function() {
             { "title": "Language"},
             { "title": "Title" },
             { "title": "Photo", "orderable": false },
-            { "title": "PDF", "orderable": false },
+            { "title": "PDF/JPG", "orderable": false },
+            // { "title": "Pdf Button Title", "orderable": false },
             { "title": "Description", "orderable": false },
             { "title": "Event Date" },
             { "title": "Type" },

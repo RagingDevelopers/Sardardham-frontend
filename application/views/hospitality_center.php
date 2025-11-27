@@ -1,29 +1,27 @@
 <section id="building-projects" class="pt-20 pb-20">
     <div class="text-center mb-2">
-        <h2><b><?= lang('business_development_title'); ?></b></h2>
+        <h2><b><?= lang('hospitality_title'); ?></b></h2>
         <div class="bar mx-auto"></div>
         <p>
-            <?= lang('business_development_sub_title_1'); ?>
+            <?= lang('hospitality_sub_title_1'); ?>
         </p>
     </div>
 
     <div class="content-box bg-white p-4 rounded-3 shadow-sm mx-auto mb-3">
         <span>
-            <?= lang('business_development_1'); ?>
+            <?= lang('hospitality_1'); ?>
         </span>
         <span>
-            <?= lang('business_development_2'); ?>
+            <?= lang('hospitality_2'); ?>
         </span>
         <span>
-            <?= lang('business_development_3'); ?>
-        </span>
     </div>
 
     <div class="mt-4 content-box mx-auto ">
         <?php
         // $images = glob(FCPATH . 'assets/images/goals/csc/*.{jpg,jpeg,png,gif}', GLOB_BRACE);
         // natsort($images);  // Natural human sorting
-        $images = ["business-devp-Images-5.jpg", "business-devp-Images-6.jpg", "business-devp-Images-7.jpg"];
+        $images = ["Hospitality-center-Images-4.jpg", "Hospitality-center-Images-3.jpg"];
         $data['images'] = [];
         foreach ($images as $img) {
             $data['images'][] = base_url('assets/images/' . $img);
@@ -51,40 +49,52 @@
 
     <div class="content-box bg-white p-4 rounded-3 shadow-sm mx-auto mb-3">
         <div class="text-center mb-2 mt-3">
-            <h2><b><?= lang('business_development_sub_title_2'); ?></b></h2>
+            <h2><b><?= lang('hospitality_sub_title_2'); ?></b></h2>
             <div class="bar mx-auto"></div>
         </div>
         <span>
-            <?= lang('business_development_facilities_1'); ?>
-            
+            <h4 class="text-center"><b><?= lang('hospitality_facilities_title_1'); ?></b></h4>
+            <?= lang('hospitality_facilities_1'); ?>
+
             <ul>
-                <li><?= lang('business_development_facilities_2'); ?></li>
-                <li><?= lang('business_development_facilities_3'); ?></li>
-                <li><?= lang('business_development_facilities_4'); ?></li>
-                <li><?= lang('business_development_facilities_5'); ?></li>
-                <li><?= lang('business_development_facilities_6'); ?></li>
-                <li><?= lang('business_development_facilities_7'); ?></li>
-                <li><?= lang('business_development_facilities_8'); ?></li>
+                <li><?= lang('hospitality_facilities_2'); ?></li>
+                <li><?= lang('hospitality_facilities_3'); ?></li>
             </ul>
+
+            <?= lang('hospitality_facilities_4'); ?>
+
         </span>
 
-        <div class="mb-2 mt-3 text-center">
-            <h4><b><?= lang('business_development_sub_title_3'); ?></b></h2>
+        <div class="mb-2 mt-3">
+            <h4 class="text-center"><b><?= lang('hospitality_facilities_title_2'); ?></b></h2>
                 <div class="bar"></div>
         </div>
         <span>
-            <?= lang('business_development_booking_1'); ?>
+            <ul>
+                <li><?= lang('hospitality_eligibility_1'); ?></li>
+                <li><?= lang('hospitality_eligibility_2'); ?></li>
+                <li><?= lang('hospitality_eligibility_3'); ?></li>
+                <li><?= lang('hospitality_eligibility_4'); ?></li>
+                <li><?= lang('hospitality_eligibility_5'); ?></li>
+                <li><?= lang('hospitality_eligibility_6'); ?></li>
+            </ul>
         </span>
+
+        <div class="mb-2 mt-3">
+            <h4 class="text-center"><b><?= lang('hospitality_booking_title_3'); ?></b></h2>
+                <div class="bar"></div>
+        </div>
         <span>
             <ul>
-                <li><?= lang('business_development_booking_2'); ?></li>
-                <li><?= lang('business_development_booking_3'); ?></li>
-                <li><?= lang('business_development_booking_4'); ?></li>
+                <li><?= lang('hospitality_booking_1'); ?></li>
+                <li><?= lang('hospitality_booking_2'); ?></li>
+                <li><?= lang('hospitality_booking_3'); ?></li>
+                <li><?= lang('hospitality_booking_4'); ?></li>
             </ul>
         </span>
         <div class="d-flex justify-content-center mt-2">
             <a href="#" target="_blank" class="btn btn-primary btn-lg">
-                <?= lang('apply_here'); ?>
+                <?= lang('book_now'); ?>
             </a>
         </div>
     </div>

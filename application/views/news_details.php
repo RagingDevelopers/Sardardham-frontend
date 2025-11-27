@@ -198,19 +198,33 @@ $event_date = !empty($event['event_date'])
                         : '<p>No description available.</p>'; ?>
                 </div>
 
+                <?php
+                // URL button title (for redirect_url) with fallback
+                $url_button_title = !empty($event['redirect_url_title'])
+                    ? $event['redirect_url_title']
+                    : (lang('click_to_view') ?: 'Click to View');
+
+                // PDF/Image button title (for pdf/image) with fallback
+                $pdf_button_title = !empty($event['button_title'])
+                    ? $event['button_title']
+                    : (lang('view_pdf') ?: 'View PDF');
+                ?>
+
                 <div class="d-flex flex-wrap gap-2">
                     <?php if (!empty($event['redirect_url'])): ?>
                         <a href="<?= $event['redirect_url']; ?>" target="_blank" class="btn-main">
-                            <?= lang('click_to_view') ?: 'Click to View'; ?>
+                            <?= html_escape($url_button_title); ?>
                         </a>
                     <?php endif; ?>
 
                     <?php if ($has_pdf_file): ?>
                         <a href="<?= $pdf_public_url; ?>" target="_blank" class="btn-soft">
-                            <?= lang('view_pdf') ?: 'View PDF'; ?>
+                            <?= html_escape($pdf_button_title); ?>
                         </a>
                     <?php endif; ?>
                 </div>
+
+
             </div>
         </div>
     </div>

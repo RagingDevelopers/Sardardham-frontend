@@ -69,12 +69,14 @@ $route['our-goals/youth-organization']                   = 'home/youthOrganizati
 
 // Activities
 $route['activities/students-adoption-scheme']       = 'sardardham/datak_yojna';
+$route['activities/higher-education-assistance-scheme']       = 'sardardham/higher_education_assistance_scheme';
 $route['activities/scholarship-scheme']             = 'sardardham/scholarship_scheme';
-$route['activities/update']                         = 'update';
+$route['activities/ek-vichar-magazine']                         = 'update';
 $route['activities/revenue-guidance-centre']        = 'sardardham/revenue_guidance_centre';
 $route['activities/medical-centre']                 = 'sardardham/medical_centre';
 $route['activities/business-development-center']    = 'sardardham/business_development_center';
 $route['activities/trustee-guest-house']            = 'sardardham/trustee_guest_house';
+$route['activities/hospitality-center']             = 'sardardham/hospitality_center';
 
 // SPIBO
 $route['spibo'] = 'sardardham/spibo';

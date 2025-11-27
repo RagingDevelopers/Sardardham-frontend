@@ -11,9 +11,9 @@ class Update extends MY_Controller
     public function index()
     {
         $page_data['page_name'] = "magazine";
-        $page_data['page_title'] = "Update";
+        $page_data['page_title'] = lang('update');
         //  $page_data['magazine'] = $this->db->get('magazine')->result_array();
-        $page_data['magazine_content'] = queryLang()->get("magazine_content")->row();
+        // $page_data['magazine_content'] = queryLang()->get("magazine_content")->row();
         $page_data['year'] = $this->db->order_by(langColumn("year"), "desc")->from('magazine')->select([langSelect('year')])->group_by(langColumn('year'))->get()->result_array();
         $this->load->view('common', $page_data);
     }
@@ -24,7 +24,7 @@ class Update extends MY_Controller
         $page_data['page_title'] = "News";
 
         $query = queryLang()->order_by("id", "desc")->where([
-            'status' => "ACTIVE",
+            // 'status' => "ACTIVE",
             "type" => "news"
         ]);
 
@@ -48,7 +48,7 @@ class Update extends MY_Controller
         }
         $slug = rawurldecode($slug);  
 
-        $event =$this->db->get_where('events', ['slug' => $slug, 'status' => 'ACTIVE'])->row_array();
+        $event =$this->db->get_where('events', ['slug' => $slug,])->row_array();
 
         if (!$event) {
             show_404();
@@ -56,7 +56,7 @@ class Update extends MY_Controller
 
         $other_news =$this->db
             ->where('id !=', $event['id'])
-            ->where('status', 'ACTIVE')
+            // ->where('status', 'ACTIVE')
             ->order_by('created_at', 'DESC')
             ->limit(6)
             ->get('events')

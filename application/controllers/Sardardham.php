@@ -58,11 +58,27 @@ class Sardardham extends MY_Controller
         $this->load->view('common', $page_data);
     }
 
+    public function higher_education_assistance_scheme()
+    {
+        $page_data['page_name'] = "higher_education_assistance";
+        $page_data['page_title'] = lang('higher_education_sardardham');
+        // $page_data['dikri_yojna'] = queryLang()->get("higher_education")->row();
+        $this->load->view('common', $page_data);
+    }
+
     public function medical_centre()
     {
         $page_data['page_name'] = "medical_centre";
         $page_data['page_title'] = lang('medical_centre');
         $page_data['medical_centre'] = queryLang()->get("medical_centre")->row();
+        $this->load->view('common', $page_data);
+    }
+
+    public function hospitality_center()
+    {
+        $page_data['page_name'] = "hospitality_center";
+        $page_data['page_title'] = lang('hospitality_center');
+        // $page_data['hospitality_center'] = queryLang()->get("hospitality_center")->row();
         $this->load->view('common', $page_data);
     }
 

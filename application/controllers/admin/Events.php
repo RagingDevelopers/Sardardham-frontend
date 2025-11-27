@@ -28,7 +28,7 @@ class Events extends CI_Controller
     {
         $this->form_validation->set_rules('title', 'Title', 'trim|required');
         $this->form_validation->set_rules('language', 'Language', 'required');
-        $this->form_validation->set_rules('status', 'Status', 'trim|required');
+        // $this->form_validation->set_rules('status', 'Status', 'trim|required');
         $this->form_validation->set_rules('photo', 'photo');
         $this->form_validation->set_rules('description', 'description');
         $this->form_validation->set_rules('event_date', 'event_date', 'trim|required');
@@ -48,12 +48,14 @@ class Events extends CI_Controller
                 exit;
             }
 
-            $data['status'] = $this->security->xss_clean($this->input->post('status'));
+            // $data['status'] = $this->security->xss_clean($this->input->post('status'));
             $data['language_id'] = $this->security->xss_clean($this->input->post('language'));
             $data['description'] = $this->security->xss_clean($this->input->post('description'));
             $data['event_date'] = $this->security->xss_clean($this->input->post('event_date'));
             $data['redirect_url'] = $this->security->xss_clean($this->input->post('redirect_url'));
             $data['type'] = $this->security->xss_clean($this->input->post('type'));
+            $data['button_title'] = $this->security->xss_clean($this->input->post('button_title'));
+            $data['redirect_url_title'] = $this->security->xss_clean($this->input->post('redirect_url_title'));
             if (!empty($_FILES['photo']['name'])) {
                 $file_ext = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
                 $rand = substr(md5(microtime()), rand(0, 26), 3);
@@ -71,7 +73,7 @@ class Events extends CI_Controller
                 $rand = substr(md5(microtime()), rand(0, 26), 3);
                 $file_name = date('Ymdhis') . $rand . '.' . $file_ext;
                 $config['upload_path'] = './upload';
-                $config['allowed_types'] = 'pdf';
+                $config['allowed_types'] = 'pdf|jpg';
                 $config['file_name'] = $file_name;
                 $this->load->library('upload', $config);
                 $this->upload->initialize($config);
@@ -103,7 +105,7 @@ class Events extends CI_Controller
     {
         $this->form_validation->set_rules('title', 'Title', 'trim|required');
         $this->form_validation->set_rules('language', 'Language', 'required');
-        $this->form_validation->set_rules('status', 'Status', 'trim|required');
+        // $this->form_validation->set_rules('status', 'Status', 'trim|required');
         $this->form_validation->set_rules('photo', 'photo');
         $this->form_validation->set_rules('description', 'description');
         $this->form_validation->set_rules('event_date', 'event_date', 'trim|required');
@@ -115,12 +117,14 @@ class Events extends CI_Controller
         } else {
             $data['title'] = $this->security->xss_clean($this->input->post('title'));
             $data['slug'] = generate_slug($data['title']);
-            $data['status'] = $this->security->xss_clean($this->input->post('status'));
+            // $data['status'] = $this->security->xss_clean($this->input->post('status'));
             $data['language_id'] = $this->security->xss_clean($this->input->post('language'));
             $data['description'] = $this->security->xss_clean($this->input->post('description'));
             $data['event_date'] = $this->security->xss_clean($this->input->post('event_date'));
             $data['redirect_url'] = $this->security->xss_clean($this->input->post('redirect_url'));
             $data['type'] = $this->security->xss_clean($this->input->post('type'));
+            $data['button_title'] = $this->security->xss_clean($this->input->post('button_title'));
+            $data['redirect_url_title'] = $this->security->xss_clean($this->input->post('redirect_url_title'));
             if (!empty($_FILES['photo']['name'])) {
                 $row_data = $this->db->get_where('events', array('id' => $param))->row('photo');
                 if (!empty($row_data)) {
@@ -146,7 +150,7 @@ class Events extends CI_Controller
                 $rand = substr(md5(microtime()), rand(0, 26), 3);
                 $file_name = date('Ymdhis') . $rand . '.' . $file_ext;
                 $config['upload_path'] = './upload';
-                $config['allowed_types'] = 'pdf';
+                $config['allowed_types'] = 'pdf|jpg';
                 $config['file_name'] = $file_name;
                 $this->load->library('upload', $config);
                 $this->upload->initialize($config);
@@ -267,6 +271,7 @@ class Events extends CI_Controller
             $row_data[] = $row['title']; // Title
             $row_data[] = '<a href="' . base_url('upload/' . $row['photo']) . '" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>'; // Photo
             $row_data[] = '<a href="' . base_url('upload/' . $row['pdf']) . '" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>'; // Pdf
+            // $row_data[] = $row['button_title']; // Button Title
             $row_data[] = $row['description']; // Description
             $row_data[] = $row['event_date']; // Event_date
             $row_data[] = $row['type']; // Type

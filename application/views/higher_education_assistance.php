@@ -1,22 +1,22 @@
 <section id="building-projects" class="pt-20 pb-20">
     <div class="text-center mb-2">
-        <h2><b><?= lang('dikri_datak_yojna_sardardham'); ?></b></h2>
-        <h3><b><?= lang('students_adoption_title_1'); ?></b></h3>
+        <h2><b><?= lang('higher_education_title'); ?></b></h2>
+        <h3><b><?= lang('higher_education_sub_title_1'); ?></b></h3>
         <div class="bar mx-auto"></div>
         <p>
-            <?= lang('students_adoption_sub_title_1'); ?>
+            <?= lang('higher_educatino_sub_title_2'); ?>
         </p>
     </div>
 
     <div class="content-box bg-white p-4 rounded-3 shadow-sm mx-auto mb-3">
         <span>
-            <?= lang('students_adoption_1'); ?>
+            <?= lang('higher_education_1'); ?>
         </span>
         <span>
-            <?= lang('students_adoption_2'); ?>
+            <?= lang('higher_education_2'); ?>
         </span>
         <span>
-            <?= lang('students_adoption_3'); ?>
+            <?= lang('higher_education_3'); ?>
         </span>
     </div>
 
@@ -31,87 +31,78 @@
 
     <div class="content-box bg-white p-4 rounded-3 shadow-sm mx-auto mb-3">
         <div class="text-center mb-2 mt-3">
-            <h2><b><?= lang('students_adoption_sub_title_2'); ?></b></h2>
+            <h2><b><?= lang('higher_education_title_4'); ?></b></h2>
             <div class="bar mx-auto"></div>
         </div>
         <span>
-            <?= lang('students_adoption_7'); ?>
+            <?= lang('higher_education_4'); ?>
+        </span>
+
+        <div class="row">
+            <div class="col-md-6">
+                <span>
+                    <ul>
+                        <li><?= lang('higher_education_scope_1'); ?></li>
+                        <li><?= lang('higher_education_scope_2'); ?></li>
+                        <li><?= lang('higher_education_scope_3'); ?></li>
+                        <li><?= lang('higher_education_scope_4'); ?></li>
+                        <li><?= lang('higher_education_scope_5'); ?></li>
+                        <li><?= lang('higher_education_scope_6'); ?></li>
+                    </ul>
+                </span>
+            </div>
+            <div class="col-md-6">
+                <span>
+                    <ul>
+                        <li><?= lang('higher_education_scope_7'); ?></li>
+                        <li><?= lang('higher_education_scope_8'); ?></li>
+                        <li><?= lang('higher_education_scope_9'); ?></li>
+                        <li><?= lang('higher_education_scope_10'); ?></li>
+                        <li><?= lang('higher_education_scope_11'); ?></li>
+                    </ul>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-box bg-white p-4 rounded-3 shadow-sm mx-auto mt-2">
+        <div class="text-center mb-2 mt-3">
+            <h2><b><?= lang('higher_education_title_5'); ?></b></h2>
+            <div class="bar mx-auto"></div>
+        </div>
+        <span>
+            <ul>
+                <li><?= lang('higher_education_process_1'); ?></li>
+                <li><?= lang('higher_education_process_2'); ?></li>
+                <li><?= lang('higher_education_process_3'); ?></li>
+                <li><?= lang('higher_education_process_4'); ?></li>
+            </ul>
         </span>
     </div>
 
     <div class="content-box bg-white p-4 rounded-3 shadow-sm mx-auto mt-2">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="text-center mb-2 mt-3">
-                    <h2><b><?= lang('students_adoption_sub_title_3'); ?></b></h2>
-                    <div class="bar mx-auto"></div>
-                </div>
-                <span>
-                    <ul>
-                        <li><?= lang('students_adoption_receive_1'); ?></li>
-                        <li><?= lang('students_adoption_receive_2'); ?></li>
-                        <li><?= lang('students_adoption_receive_4'); ?></li>
-                        <li><?= lang('students_adoption_receive_5'); ?></li>
-                    </ul>
-                </span>
-            </div>
-            <div class="col-md-6">
-                <div class="text-center mb-2 mt-3">
-                    <h2><b><?= lang('students_adoption_sub_title_4'); ?></b></h2>
-                    <div class="bar mx-auto"></div>
-                </div>
-                <span>
-                    <ul>
-                        <li><?= lang('students_adoption_works_1'); ?></li>
-                        <li><?= lang('students_adoption_works_2'); ?></li>
-                        <li><?= lang('students_adoption_works_3'); ?></li>
-                        <li><?= lang('students_adoption_works_4'); ?></li>
-                    </ul>
-                </span>
-            </div>
-
-            <div class="text-center">
-                <h3><b><?= lang('students_adoption_sub_title_6'); ?></b></h3>
-                <div class="bar mx-auto"></div>
-                <span>
-                    <ul style="text-align: justify;">
-                        <li><?= lang('students_adoption_scheme_1'); ?></li>
-                        <li><?= lang('students_adoption_scheme_2'); ?></li>
-                        <li><?= lang('students_adoption_scheme_3'); ?></li>
-                        <li><?= lang('students_adoption_scheme_4'); ?></li>
-                    </ul>
-                </span>
-            </div>
-        </div>
-
-    </div>
-
-
-    <div class="content-box bg-white p-4 rounded-3 shadow-sm mx-auto mt-3">
-        <div class="text-center mb-3">
-            <h2><b><?= lang('students_adoption_sub_title_5'); ?></b></h2>
+        <div class="text-center mb-2 mt-3">
+            <h2><b><?= lang('higher_education_title_6'); ?></b></h2>
             <div class="bar mx-auto"></div>
-            <p><?= lang('students_adoption_sub_title_7'); ?></p>
         </div>
         <span>
-            <?= lang('students_adoption_5'); ?>
-        </span>
-        <span>
-            <?= lang('students_adoption_6'); ?>
+            <ul>
+                <li><?= lang('higher_education_selection_1'); ?></li>
+                <li><?= lang('higher_education_selection_2'); ?></li>
+                <li><?= lang('higher_education_selection_3'); ?></li>
+                <li><?= lang('higher_education_selection_4'); ?></li>
+                <li><?= lang('higher_education_selection_5'); ?></li>
+            </ul>
         </span>
         <div class="d-flex justify-content-center flex-wrap gap-3 mt-3">
             <a href="#" target="_blank" class="btn btn-primary btn-lg">
-                <?= lang('donate_here'); ?>
+                <?= lang('stay_updated'); ?>
             </a>
             <a href="#" target="_blank" class="btn btn-primary btn-lg">
                 <?= lang('apply_here'); ?>
             </a>
-            <a href="#" target="_blank" class="btn btn-primary btn-lg">
-                <?= lang('check_your_application_status'); ?>
-            </a>
         </div>
     </div>
-
 
 </section>
 

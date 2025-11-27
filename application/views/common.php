@@ -244,12 +244,14 @@ if (empty($language)) {
                         <li class=" nav-item dropdown">
                             <a class="nav-link dropdown-toggle <?= is_active([
                                 'activities/students-adoption-scheme',
+                                'activities/higher-education-assistance-scheme',
                                 'activities/scholarship-scheme',
-                                'activities/update',
+                                'activities/ek-vichar-magazine',
                                 'activities/revenue-guidance-centre',
                                 'activities/medical-centre',
                                 'activities/business-development-center',
-                                'activities/trustee-guest-house'
+                                'activities/trustee-guest-house',
+                                'activities/hospitality-center'
                             ]) ?>" href="#" id="activityDropdown" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false" data-bs-auto-close="outside">
                                 <?php echo lang('activity'); ?>
@@ -260,17 +262,9 @@ if (empty($language)) {
                                     <a class="dropdown-item "
                                         href="<?= base_url('activities/students-adoption-scheme'); ?>"><?= lang('dikri_datak_yojna_sardardham') ?></a>
                                 </li>
-                                <li class="<?= is_active('activities/scholarship-scheme') ?>">
+                                <li class="<?= is_active('activities/higher-education-assistance-scheme') ?>">
                                     <a class="dropdown-item "
-                                        href="<?= base_url('activities/scholarship-scheme'); ?>"><?= lang('dr_chittaranjanbhai'); ?></a>
-                                </li>
-                                <li class="<?= is_active('activities/update') ?>">
-                                    <a class="dropdown-item "
-                                        href="<?= base_url('activities/update'); ?>"><?= lang('ek_vichar_magazine'); ?></a>
-                                </li>
-                                <li class="<?= is_active('activities/revenue-guidance-centre') ?>">
-                                    <a class="dropdown-item "
-                                        href="<?= base_url('activities/revenue-guidance-centre'); ?>"><?= lang('revenue_guidance_centre'); ?></a>
+                                        href="<?= base_url('activities/higher-education-assistance-scheme'); ?>"><?= lang('higher_education_sardardham') ?></a>
                                 </li>
                                 <li class="<?= is_active('activities/medical-centre') ?>">
                                     <a class="dropdown-item "
@@ -280,10 +274,26 @@ if (empty($language)) {
                                     <a class="dropdown-item "
                                         href="<?= base_url('activities/business-development-center'); ?>"><?= lang('business_development_center'); ?></a>
                                 </li>
-                                <li class="<?= is_active('activities/trustee-guest-house') ?>">
+                                <li class="<?= is_active('activities/hospitality-center') ?>">
+                                    <a class="dropdown-item "
+                                        href="<?= base_url('activities/hospitality-center'); ?>"><?= lang('hospitality_center'); ?></a>
+                                </li>
+                                <li class="<?= is_active('activities/ek-vichar-magazine') ?>">
+                                    <a class="dropdown-item "
+                                        href="<?= base_url('activities/ek-vichar-magazine'); ?>"><?= lang('ek_vichar_magazine'); ?></a>
+                                </li>
+                                <!-- <li class="<?= is_active('activities/trustee-guest-house') ?>">
                                     <a class="dropdown-item "
                                         href="<?= base_url('activities/trustee-guest-house'); ?>"><?= lang('trustee_guest_house'); ?></a>
-                                </li>
+                                </li> -->
+                                <!-- <li class="<?= is_active('activities/scholarship-scheme') ?>">
+                                    <a class="dropdown-item "
+                                        href="<?= base_url('activities/scholarship-scheme'); ?>"><?= lang('dr_chittaranjanbhai'); ?></a>
+                                </li> -->
+                                <!-- <li class="<?= is_active('activities/revenue-guidance-centre') ?>">
+                                    <a class="dropdown-item "
+                                        href="<?= base_url('activities/revenue-guidance-centre'); ?>"><?= lang('revenue_guidance_centre'); ?></a>
+                                </li> -->
                             </ul>
                         </li>
 
@@ -326,10 +336,10 @@ if (empty($language)) {
                                     <a class="dropdown-item "
                                         href="<?= base_url('media/news'); ?>"><?= lang('news_media') ?></a>
                                 </li>
-                                <li class="<?= is_active('media/event') ?>">
+                                <!-- <li class="<?= is_active('media/event') ?>">
                                     <a class="dropdown-item "
                                         href="<?= base_url('media/event') ?>"><?= lang('event'); ?></a>
-                                </li>
+                                </li> -->
                                 <li class="<?= is_active('media/video-gallery') ?>">
                                     <a class="dropdown-item "
                                         href="<?= base_url('media/video-gallery'); ?>"><?= lang('video_gallery'); ?></a>
