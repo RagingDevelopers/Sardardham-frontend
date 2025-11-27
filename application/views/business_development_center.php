@@ -70,7 +70,7 @@
 
         <div class="mb-2 mt-3 text-center">
             <h4><b><?= lang('business_development_sub_title_3'); ?></b></h2>
-                <div class="bar"></div>
+                <div class="bar mx-auto"></div>
         </div>
         <span>
             <?= lang('business_development_booking_1'); ?>

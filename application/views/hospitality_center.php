@@ -67,7 +67,7 @@
 
         <div class="mb-2 mt-3">
             <h4 class="text-center"><b><?= lang('hospitality_facilities_title_2'); ?></b></h2>
-                <div class="bar"></div>
+                <div class="bar mx-auto"></div>
         </div>
         <span>
             <ul>
@@ -82,7 +82,7 @@
 
         <div class="mb-2 mt-3">
             <h4 class="text-center"><b><?= lang('hospitality_booking_title_3'); ?></b></h2>
-                <div class="bar"></div>
+                <div class="bar mx-auto"></div>
         </div>
         <span>
             <ul>
