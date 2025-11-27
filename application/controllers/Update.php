@@ -11,13 +11,19 @@ class Update extends MY_Controller
     public function index()
     {
         $page_data['page_name'] = "magazine";
-        $page_data['page_title'] = lang('update');
+        $page_data['page_title'] = lang('ek_vichar_magazine');
         //  $page_data['magazine'] = $this->db->get('magazine')->result_array();
         // $page_data['magazine_content'] = queryLang()->get("magazine_content")->row();
         $page_data['year'] = $this->db->order_by(langColumn("year"), "desc")->from('magazine')->select([langSelect('year')])->group_by(langColumn('year'))->get()->result_array();
         $this->load->view('common', $page_data);
     }
-    public function news()
+/*************  ✨ Windsurf Command ⭐  *************/
+/**
+ * Display news page with current/future or past news
+ *
+ * @param string $filter if 'archive', display past news, else display current/future news
+ */
+/*******  eb209ba4-76e2-490b-9583-aac1384cc072  *******/    public function news()
     {
         $filter = $this->input->get('filter');
         $page_data['page_name'] = "news";

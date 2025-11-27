@@ -74,8 +74,7 @@
         </div>
         <span>
             <?= lang('business_development_booking_1'); ?>
-        </span>
-        <span>
+        
             <ul>
                 <li><?= lang('business_development_booking_2'); ?></li>
                 <li><?= lang('business_development_booking_3'); ?></li>

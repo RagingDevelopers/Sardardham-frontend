@@ -33,7 +33,7 @@
                                         if (isset($languages) && !empty($languages)) {
                                             foreach($languages as $lang) { ?>
                                             <option value="<?= $lang['id'] ?>" <?= ((isset($row_data) && ($row_data['language_id'] == $lang['id'])) ? "selected" : "") ?>><?= $lang['name'] ?></option>
-                                            <? }
+                                            <?php }
                                         }
                                     ?>
                                 </select>
@@ -75,7 +75,7 @@
                             <div class="form-group">
                                 <label for="title">PDF Button Title <span class="text-danger">*</span></label>
                                 <div class="input-group">
-                                <input type="text" name="button_title" value="<?php if(isset($row_data)){ echo $row_data['button_title']; } ?>" class="form-control" id="title" placeholder="PDF Button title" required>
+                                <input type="text" name="button_title" value="<?php if(isset($row_data)){ echo $row_data['button_title']; } ?>" class="form-control" id="title" placeholder="PDF Button title" >
                             </div>
                         </div>
                     </div>
@@ -90,7 +90,7 @@
                             <div class="form-group">
                                 <label for="url_title">Redirect Button Title <span class="text-danger">*</span></label>
                                 <div class="input-group">
-                                <input type="text" name="redirect_url_title" value="<?php if(isset($row_data)){ echo $row_data['redirect_url_title']; } ?>" class="form-control" id="url_title" placeholder="Redirect Button title" required>
+                                <input type="text" name="redirect_url_title" value="<?php if(isset($row_data)){ echo $row_data['redirect_url_title']; } ?>" class="form-control" id="url_title" placeholder="Redirect Button title">
                             </div>
                         </div>
                     </div>

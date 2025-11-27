@@ -26,7 +26,7 @@ $lang['yuvatej_tejasvini'] = "YuvaTej-Tejasvini";
 $lang['admission'] = "Admission";
 $lang['ahmedabad'] = "Ahmedabad";
 $lang['bhuj_kutch'] = "KUTCH - BHUJ";
-$lang['update'] = "ek-vichar-magazine";
+$lang['update'] = "Update";
 $lang['downloads'] = "Downloads";
 $lang['ek_vichar_magazine'] = "Sardardham – Ek Vichar Magazine";
 $lang['news_updates'] = "News & Updates";
@@ -35,6 +35,7 @@ $lang['gallery'] = "MEDIA";
 $lang['connect'] = "CONTACT US";
 $lang['e_notice_board'] = "E-notice Board";
 $lang['whats_next'] = "What's next";
+// $lang['ek_vichar_magazine'] = "Ek Vichar Magazine";
 
 
 
