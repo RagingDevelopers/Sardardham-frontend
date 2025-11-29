@@ -183,14 +183,14 @@ $event_date = !empty($event['event_date'])
             <div class="col-md-7">
                 <h2 class="news-title mb-3"><?= html_escape($event['title']); ?></h2>
 
-                <div class="news-meta mb-3">
+                <!-- <div class="news-meta mb-3">
                     <?php if ($event_date): ?>
                         <span><?= $event_date; ?></span>
                     <?php endif; ?>
                     <?php if (!empty($event['type'])): ?>
                         <span class="news-meta-badge"><?= ucfirst($event['type']); ?></span>
                     <?php endif; ?>
-                </div>
+                </div> -->
 
                 <div class="news-body mb-4">
                     <?= !empty($event['description'])
@@ -264,7 +264,7 @@ $event_date = !empty($event['event_date'])
                             $buttonText     = $item['title'];
                             $buttonStyle    = 'btn m-0 text-white w-100';
                             $buttonGradient = 'background:linear-gradient(90deg,#0e9ea8 0,#43e794 100%);border-radius:4px;transition:.5s;';
-                            $buttonURL      = base_url('update/news_details/' . rawurlencode($item['slug']));
+                            $buttonURL      = base_url('media/news-details/' . rawurlencode($item['slug']));
                             ?>
                             <a href="<?= $buttonURL; ?>" class="<?= $buttonStyle ?>" style="<?= $buttonGradient ?>">
                                 <?= $buttonText; ?>

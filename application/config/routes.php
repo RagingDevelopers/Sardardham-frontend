@@ -83,9 +83,13 @@ $route['spibo'] = 'sardardham/spibo';
 
 // Media
 $route['media/news']            = 'update/news';
+$route['media/news-event']    = 'update/news';
 $route['media/event']           = 'update/event';
 $route['media/video-gallery']   = 'gallery/video_gallery';
 $route['media/gallery']         = 'gallery';
+// $route['media/news-details']   = 'update/news_details';
+$route['media/news-details/(:any)'] = 'update/news_details/$1';
+
 
 // Donation
 $route['donation'] = 'sardardham/donation';

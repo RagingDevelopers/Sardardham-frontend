@@ -17,13 +17,14 @@ class Update extends MY_Controller
         $page_data['year'] = $this->db->order_by(langColumn("year"), "desc")->from('magazine')->select([langSelect('year')])->group_by(langColumn('year'))->get()->result_array();
         $this->load->view('common', $page_data);
     }
-/*************  ✨ Windsurf Command ⭐  *************/
-/**
- * Display news page with current/future or past news
- *
- * @param string $filter if 'archive', display past news, else display current/future news
- */
-/*******  eb209ba4-76e2-490b-9583-aac1384cc072  *******/    public function news()
+    /*************  ✨ Windsurf Command ⭐  *************/
+    /**
+     * Display news page with current/future or past news
+     *
+     * @param string $filter if 'archive', display past news, else display current/future news
+     */
+    /*******  eb209ba4-76e2-490b-9583-aac1384cc072  *******/
+    public function news()
     {
         $filter = $this->input->get('filter');
         $page_data['page_name'] = "news";
@@ -52,15 +53,15 @@ class Update extends MY_Controller
         if (!$slug) {
             show_404();
         }
-        $slug = rawurldecode($slug);  
+        $slug = rawurldecode($slug);
 
-        $event =$this->db->get_where('events', ['slug' => $slug,])->row_array();
+        $event = $this->db->get_where('events', ['slug' => $slug,])->row_array();
 
         if (!$event) {
             show_404();
         }
 
-        $other_news =$this->db
+        $other_news = $this->db
             ->where('id !=', $event['id'])
             // ->where('status', 'ACTIVE')
             ->order_by('created_at', 'DESC')
@@ -75,7 +76,7 @@ class Update extends MY_Controller
         ];
         $page_data['page_name'] = "news_details";
         $page_data['page_title'] = "News Details";
-        
+
         $this->load->view('common', $page_data);
     }
 

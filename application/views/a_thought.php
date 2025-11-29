@@ -18,8 +18,10 @@
         }
     }
 </style>
-<div class="inner-page fw-bold text-center" style="background-color: #E1E1E1;color: #21559B;"><span
-        class="contents"><?= lang('a_thought') ?></span>
+<div class="inner-page fw-bold text-center" style="background: url(<?= base_url('assets/thought.jpg') ?>) center/cover no-repeat; padding: 50px 0; color: #21559B; display: block !important; height: 280px !important;"><span
+        class="contents">
+        <!-- <?= lang('a_thought') ?> -->
+    </span>
 </div>
 <div class="container-fluid">
     <section id="about-part" class="pt-20 pb-0">

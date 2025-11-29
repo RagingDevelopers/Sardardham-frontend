@@ -41,15 +41,15 @@
     }
   }
 
-  .card {
+  .card1 {
     list-style: none;
     position: relative;
   }
 
-  .card:before {
+  .card1:before {
     content: '';
     display: block;
-    /* padding-bottom: 150%; */
+    padding-bottom: 150%;
     width: 100%;
   }
 
@@ -70,11 +70,11 @@
       transform 200ms linear;
   }
 
-  .card:hover .card__background {
+  .card1:hover .card__background {
     transform: scale(1.05) translateZ(0);
   }
 
-  .card-grid:hover>.card:not(:hover) .card__background {
+  .card-grid:hover>.card1:not(:hover) .card__background {
     filter: brightness(0.9) saturate(0) contrast(0.9) blur(4px);
   }
 

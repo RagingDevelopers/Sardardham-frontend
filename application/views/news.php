@@ -84,7 +84,7 @@
         <a href="<?= base_url('update/news?filter=current'); ?>"
             class="btn btn-primary me-1 <?= $filter !== 'archive' ? 'active' : ''; ?>"><?= lang('current') ?>
         </a>
-        <a href="<?= base_url('update/news?filter=archive'); ?>"
+        <a href="<?= base_url('media/news-event?filter=archive'); ?>"
             class="btn btn-secondary <?= $filter === 'archive' ? 'active' : ''; ?>"><?= lang('archive') ?>
         </a>
     </div>
@@ -135,7 +135,7 @@
                                 }
                             }
 
-                            $buttonURL = base_url('update/news_details/' . $events[$x]['slug']);
+                            $buttonURL = base_url('media/news-details/' . $events[$x]['slug']);
                             ?>
                             <a href="<?= $buttonURL; ?>" target="_blank" class="<?= $buttonStyle ?>"
                                 style="<?= $buttonGradient ?>"><?= $buttonText; ?></a>
