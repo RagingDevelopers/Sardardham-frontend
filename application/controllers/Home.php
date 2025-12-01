@@ -14,7 +14,7 @@ class Home extends MY_Controller
         $page_data['page_title'] = "Home";
         $page_data['slider'] = queryLang()->get('slider')->result_array();
         $page_data['magazines'] = $this->db->select([langSelect("title"), langSelect("year"), "pdf", "photo"])->limit(4)->order_by('id', 'desc')->get('magazine')->result_array();
-        $page_data['events'] = queryLang()->limit(5)->where(['status' => "ACTIVE"])->order_by('id', 'desc')->get('events')->result_array();
+        $page_data['events'] = queryLang()->limit(3)->order_by('id', 'desc')->get('events')->result_array();
         $page_data['documentary'] = $this->db->select(["*", langSelect("title")])->where(['status' => "ACTIVE"])->order_by('id', 'desc')->get('documentary')->result_array();
         $page_data['ideology'] = queryLang()->get("ideology")->row();
         $page_data['president_message'] = queryLang()->get("president_message")->row();

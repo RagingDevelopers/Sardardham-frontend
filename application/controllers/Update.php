@@ -26,14 +26,11 @@ class Update extends MY_Controller
     /*******  eb209ba4-76e2-490b-9583-aac1384cc072  *******/
     public function news()
     {
-        $filter = $this->input->get('filter');
+        $filter = $this->input->get('filter') ?? "current";
         $page_data['page_name'] = "news";
         $page_data['page_title'] = "News";
 
-        $query = queryLang()->order_by("id", "desc")->where([
-            // 'status' => "ACTIVE",
-            "type" => "news"
-        ]);
+        $query = queryLang()->order_by("id", "desc");
 
         if ($filter === 'archive') {
             $query->where("event_date <", date("Y-m-d")); // past news

@@ -345,7 +345,9 @@ class Philanthropist extends MY_Controller
 
                 $csv_name = trim($data[2]);
 
-                $record = $this->db->where('eng_name', $csv_name)
+                $record = $this->db
+                ->where('eng_name', $csv_name)
+                ->where('category_id', 3)
                     ->get('philanthropist')
                     ->row();
 
@@ -369,7 +371,6 @@ class Philanthropist extends MY_Controller
                         $this->db->where('id', $record->id)
                             ->update('philanthropist', [
                                 'image'       => $newName,
-                                "category_id" => 2,
                             ]);
 
                         echo "Updated: " . $csv_name . " → " . $newName . "<br>";
