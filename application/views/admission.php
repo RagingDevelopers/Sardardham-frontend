@@ -74,7 +74,7 @@
         </span>
 
         <div class="mt-3 text-center">
-            <a href="https://csc.sardardham.org/home/skill_batch" class="btn btn-primary"><?= lang('apply_here'); ?></a>
+            <a href="https://csc.sardardham.org" class="btn btn-primary"><?= lang('apply_here'); ?></a>
         </div>
     </div>
 
@@ -200,7 +200,7 @@
         </ul>
 
         <div class="mt-3 text-center">
-            <a href="#" class="btn btn-primary px-5">
+            <a href="https://csc.sardardham.org" class="btn btn-primary px-5">
                 <?= lang('apply_for_admission'); ?>
             </a>
         </div>
