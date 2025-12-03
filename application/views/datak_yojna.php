@@ -1,3 +1,58 @@
+<style>
+    #building-projects {
+        scroll-margin-top: 80px;
+    }
+
+    #cscCarousel img {
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    #building-projects .project {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    #building-projects .image-container {
+        width: 100%;
+        /* max-height: 444px; */
+        overflow: hidden;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .content-box {
+        max-width: 90%;
+        font-size: 18px;
+        line-height: 1.7;
+    }
+
+    #building-projects .project-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.35s ease;
+    }
+
+    #building-projects .project-img:hover {
+        transform: scale(1.05);
+    }
+
+    .btn-primary {
+        border-radius: 50px;
+        padding: 12px 25px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .btn-primary:hover {
+        background-color: #0047ab;
+        transform: scale(1.05);
+    }
+</style>
 <section id="building-projects" class="pt-20 pb-20">
     <div class="text-center mb-2">
         <h2><b><?= lang('dikri_datak_yojna_sardardham'); ?></b></h2>
@@ -114,59 +169,3 @@
 
 
 </section>
-
-<style>
-    #building-projects {
-        scroll-margin-top: 80px;
-    }
-
-    #cscCarousel img {
-        object-fit: cover;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    }
-
-    #building-projects .project {
-        max-width: 90%;
-        margin: 0 auto;
-    }
-
-    #building-projects .image-container {
-        width: 100%;
-        /* max-height: 444px; */
-        overflow: hidden;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    }
-
-    .content-box {
-        max-width: 90%;
-        font-size: 18px;
-        line-height: 1.7;
-    }
-
-    #building-projects .project-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.35s ease;
-    }
-
-    #building-projects .project-img:hover {
-        transform: scale(1.05);
-    }
-
-    .btn-primary {
-        border-radius: 50px;
-        padding: 12px 25px;
-        transition: all 0.3s ease-in-out;
-    }
-
-    .btn-primary:hover {
-        background-color: #0047ab;
-        transform: scale(1.05);
-    }
-</style>

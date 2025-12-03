@@ -190,12 +190,12 @@ if (empty($language)) {
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 bottom-navbar">
                         <!-- <li class="nav-item"><a class="nav-link active" href="">Home</a></li> -->
                         <li class="nav-item dropdown">
-                             <?php
+                            <?php
                             $isActive = (strpos($this->uri->uri_string(), "about-us") === 0) ? 'active' : '';
                             ?>
-                            <a class="nav-link dropdown-toggle <?=  $isActive?>"
-                                href="#" id="aboutUsDropdown" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false" data-bs-auto-close="outside">
+                            <a class="nav-link dropdown-toggle <?= $isActive ?>" href="#" id="aboutUsDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                                data-bs-auto-close="outside">
                                 <?php echo lang('about_us'); ?>
                             </a>
 
@@ -203,11 +203,11 @@ if (empty($language)) {
                                 <?php
                                 $aboutUs = [
                                     'sardardham-a-thought' => "thought",
-                                    'mission-vision-goal'  => 'mission_vision_goal',
-                                    'philanthropist'       => 'philanthropist',
-                                    'team-sardardham'      => 'team'
+                                    'mission-vision-goal' => 'mission_vision_goal',
+                                    'philanthropist' => 'philanthropist',
+                                    'team-sardardham' => 'team'
                                 ];
-                                foreach ( $aboutUs as $url => $name ) {
+                                foreach ($aboutUs as $url => $name) {
                                     ?>
                                     <li class="<?= is_active("about-us/{$url}") ?>">
                                         <a class="dropdown-item "
@@ -228,7 +228,7 @@ if (empty($language)) {
                                 <?php
                                 global $goals;
                                 $goals = queryLang()->order_by("sequence", "ASC")->get("goals")->result();
-                                foreach ( $goals as $goal ) {
+                                foreach ($goals as $goal) {
                                     $preFix = $goal->active == 0 ? "our-goals/" : "home/goals/";
                                     ?>
                                     <li
@@ -298,12 +298,18 @@ if (empty($language)) {
                         </li>
 
                         <li class=" nav-item">
+                            <a class="nav-link <?= is_active('admission') ?>"
+                                href="<?= base_url('admission') ?>"><?= lang('admission'); ?>
+                            </a>
+                        </li>
+                        
+                        <li class=" nav-item">
                             <a class="nav-link <?= is_active('spibo') ?>"
                                 href="<?= base_url('spibo') ?>"><?= lang('lng_spibo'); ?></a>
                         </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle <?= is_active([ 'admission/ahmedabad', 'admission/bhuj_kutch', 'admission/hostel_facilities' ]) ?>"
+                        <!-- <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle <?= is_active(['admission/ahmedabad', 'admission/bhuj_kutch', 'admission/hostel_facilities']) ?>"
                                 href="#" id="admissionDropdown" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false" data-bs-auto-close="outside">
                                 <?= lang('admission') ?>
@@ -322,10 +328,10 @@ if (empty($language)) {
                                         href="https://bhuj.sardardham.org/?utm_source=sardardham.org"><?= lang('bhuj_kutch'); ?></a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle <?= is_active([ 'media/news', 'media/event', 'media/video-gallery', 'media/gallery' ]) ?>"
+                            <a class="nav-link dropdown-toggle <?= is_active(['media/news', 'media/event', 'media/video-gallery', 'media/gallery']) ?>"
                                 href="#" id="mediaDropdown" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false" data-bs-auto-close="outside">
                                 <?= lang('gallery') ?>
@@ -353,7 +359,7 @@ if (empty($language)) {
 
 
                         <li class=" nav-item">
-                            <a class="nav-link <?= is_active([ 'donation', 'donation_details' ]) ?>"
+                            <a class="nav-link <?= is_active(['donation', 'donation_details']) ?>"
                                 href="<?= base_url('donation') ?>"><?= lang('donation'); ?></a>
                         </li>
 
@@ -363,7 +369,7 @@ if (empty($language)) {
                         </li> -->
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle <?= is_active([ 'update/download', 'update/documentary' ]) ?>"
+                            <a class="nav-link dropdown-toggle <?= is_active(['update/download', 'update/documentary']) ?>"
                                 href="#" id="updateDropdown" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false" data-bs-auto-close="outside">
                                 <?= lang('update') ?>
@@ -560,7 +566,7 @@ if (empty($language)) {
     <?php $locations = queryLang()->order_by("sequence", "ASC")->get("location")->result(); ?>
     <div class="container-fluid pt-40 pb-40 location-section">
         <div class="row g-4">
-            <?php foreach ( $locations as $l ) { ?>
+            <?php foreach ($locations as $l) { ?>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-flex align-items-stretch">
                     <div class="card location-card shadow-lg w-100">
 

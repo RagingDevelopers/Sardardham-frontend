@@ -117,6 +117,7 @@ $lang['submit'] = "Submit";
 $lang['ahemdabad_admission'] = "Ahmedabad Admission";
 $lang['bhuj_katch'] = "Bhuj Kutch Admission";
 $lang['lng_spibo'] = "SPIBO";
+$lang['spibo'] = "Sardar Patel International Business Organization (SPIBO)";
 
 $lang['dr_chittaranjanbhai'] = "Scholarship Scheme";
 $lang['revenue_guidance_centre'] = "Revenue Guidance Centre";
@@ -373,7 +374,7 @@ $lang['business_development_3'] = "All facilities are available on a payment bas
 $lang['business_development_sub_title_2'] = "Facilities & Booking";
 $lang['business_development_facilities_1'] = "We offer a diverse range of venues and amenities to cater to events of all scales:";
 $lang['business_development_facilities_2'] = "Auditorium with a seating capacity of 400 persons";
-$lang['business_development_facilities_3'] = "Dharmanandan Hall accommodating up to 700 persons"; 
+$lang['business_development_facilities_3'] = "Dharmanandan Hall accommodating up to 700 persons";
 $lang['business_development_facilities_4'] = "Conference Hall – seating capacity 80 persons";
 $lang['business_development_facilities_5'] = "Small Conference Hall – seating capacity 15 persons";
 $lang['business_development_facilities_6'] = "Exhibition Hall for product displays and business expos";
@@ -418,3 +419,175 @@ $lang['ek_vichar_sub_title_1'] = "Sardardham – Ek Vichar";
 $lang['ek_vichar_1'] = "Sardardham – Ek Vichar is the official monthly magazine of the SARDARDHAM Institute. It embodies the vision and values inspired by Sardar Vallabhbhai Patel, celebrating his timeless message of unity, leadership, and nation-building.";
 $lang['ek_vichar_2'] = "Through insightful articles, interviews, and community stories, the magazine connects readers to the ideals of “Building the Nation through Building Society.” It also highlights SARDARDHAM’s ongoing initiatives, educational efforts, and social development programs that empower the Patidar community and contribute to India’s progress.";
 $lang['ek_vichar_3'] = "Stay informed, inspired, and involved with Sardardham – Ek Vichar — a reflection of thought, purpose, and progress.";
+
+
+// SPIBO Section
+$lang['spibo_title'] = "Sardar Patel International Business Organization (SPIBO)";
+$lang['spibo_tagline'] = "One Platform. Infinite Business Possibilities.";
+$lang['spibo_overview_1'] = "Aproud and powerful initiative under Sardardham—empowering the entrepreneurial spirit of India. Sardar Patel International Business Organization (SPIBO) is a visionary initiative inspired by Sardardham, created to accelerate trade, commerce, and economic growth through a powerful digital business network.";
+$lang['spibo_overview_2'] = "Designed as India’s most comprehensive B2B ecosystem, SPIBO brings together entrepreneurs, industries, and global markets on a single seamless platform.";
+$lang['spibo_overview_3'] = "Built as a future-ready “Super App”, SPIBO simplifies and transforms business operations for the next generation—offering a 24/7 digital marketplace accessible through both mobile application and website.";
+
+$lang['spibo_sub_title_1'] = "What is SPIBO?";
+$lang['spibo_overview_4'] = "SPIBO is an innovative, multi-business digital platform crafted for entrepreneurs across India and the world. Tailored to meet dynamic business needs, it serves as a 24×7 online B2B network that connects buyers, sellers, service providers, and investors in one unified ecosystem.";
+$lang['spibo_overview_5'] = "After extensive research, development, and testing, SPIBO stands as a high-performance Super App that delivers:";
+$lang['spibo_feature_1'] = "Asmooth and intuitive purchasing experience";
+$lang['spibo_feature_2'] = "Access to trusted and verified global brands";
+$lang['spibo_feature_3'] = "Aconsolidated marketplace across numerous industries";
+
+$lang['spibo_overview_6'] = "By hosting leading brands and emerging enterprises together, SPIBO ensures users receive unmatched variety, reliability, and business convenience—anytime, anywhere";
+
+$lang['spibo_sub_title_2'] = "Objectives of SPIBO";
+$lang['spibo_overview_7'] = "SPIBO has been developed with clear and powerful objectives:";
+$lang['spibo_objective_1'] = "Strengthen Business Relationships";
+$lang['spibo_sub_objective_1'] = "To create mutually beneficial connections between buyers and sellers through advanced networking tools.";
+$lang['spibo_objective_2'] = "Encourage and Support Entrepreneurship";
+$lang['spibo_sub_objective_2'] = "To help new entrepreneurs start, manage, and scale their businesses with digital efficiency.";
+$lang['spibo_objective_3'] = "Build a Global Business Community";
+$lang['spibo_sub_objective_3'] = "To offer a common platform where thousands of business owners, industrialists, and professionals interact and grow together.";
+$lang['spibo_objective_4'] = "Bridge Communities";
+$lang['spibo_sub_objective_4'] = "To link established business leaders with aspiring and underprivileged entrepreneurs for inclusive economic growth.";
+$lang['spibo_objective_5'] = "Empower the Next Generation";
+$lang['spibo_sub_objective_5'] = "To provide young and educated individuals with exposure to real-world business environments through a professional digital platform.";
+
+$lang['spibo_sub_title_3'] = "How is SPIBO Different?";
+$lang['spibo_overview_8'] = "SPIBO introduces India’s first-ever online multi-business module developed by a community for national and international business empowerment. It brings together several business models on a single platform, including:";
+$lang['spibo_difference_1'] = "• Business • Services • Franchises • Start-ups • Venture Capital • Real Estate • Government Schemes & Policy Information";
+$lang['spibo_difference_2'] = "The platform spans local to international brands, covering everything from small household items to large industrial machinery";
+$lang['spibo_difference_3'] = "Industry Coverage";
+$lang['spibo_difference_4'] = "SPIBO features 90+ major business & service categories and 1,600+ subcategories, including:";
+$lang['spibo_difference_5'] = "• Agriculture • Consumer Electronics • Pharmaceuticals • Textiles & Fabrics • Beauty & Personal
+Care • Food & Beverages • Automobiles • Furniture & Interior Décor • Construction & Building
+Materials • Industrial Supplies…and many more.";
+
+$lang['spibo_sub_title_4'] = "How Does SPIBO Benefit You?";
+$lang['spibo_overview_9'] = "SPIBO empowers businesses, entrepreneurs, traders, and industrialists to engage in smooth and secure B2B transactions from anywhere in the world.";
+$lang['spibo_benefit_1'] = "With SPIBO, you can:";
+$lang['spibo_benefit_2'] = "Receive business orders while spending time with family";
+$lang['spibo_benefit_3'] = "Sell your products even while you are travelling";
+$lang['spibo_benefit_4'] = "Manage your business operations on the go";
+$lang['spibo_benefit_5'] = "Advertise your products to millions through Smart Ads";
+$lang['spibo_benefit_6'] = "Expand locally, nationally, and globally—without heavy investment";
+$lang['spibo_benefit_7'] = "Key Advantages";
+$lang['spibo_benefit_8'] = "Global & nationwide business presence";
+$lang['spibo_benefit_9'] = "Fast, seamless customer experience";
+$lang['spibo_benefit_10'] = "Instant access to all business and service categories";
+$lang['spibo_benefit_11'] = "Direct, easy connectivity between buyers & sellers";
+$lang['spibo_benefit_12'] = "Scale your business from local to global levels with minimal cost";
+$lang['spibo_benefit_13'] = "SPIBO opens limitless possibilities for both emerging and established businesses to grow exponentially";
+
+$lang['spibo_sub_title_5'] = "How to Join the SPIBO Network ?";
+$lang['spibo_overview_10'] = "Joining SPIBO is simple:";
+$lang['spibo_join_1'] = "Visit spibo.in";
+$lang['spibo_join_2'] = "Go to the Register section and complete your online profile";
+$lang['spibo_join_3'] = "List your products or services on the SPIBO app";
+$lang['spibo_join_4'] = "Start expanding your business—from local to global!";
+
+// ADMISSION PAGE
+$lang['admission_at_sardardham'] = "Admission at Sardardham";
+$lang['admission_tagline'] = "Merit First Transparency Always";
+$lang['admission_tagline_1'] = "Civil Service Training Admissions";
+$lang['admission_overview_1'] = "Sardardham provides safe, disciplined, and growth-oriented residential & educational facilities that
+empower and uplift students, aspirants, and working women. All hostel & Education courses
+admissions are conducted strictly on merit and through a transparent, well-defined, and accountable
+selection process ensuring equal opportunity for every deserving candidate under the guidance of
+the Admission Committee.";
+
+$lang['admission_overview_2'] = "The Committee’s decision regarding admissions is final.";
+
+$lang['admission_overview_3'] = "The Civil Service Centre provides specialized coaching for 
+aspirants preparing for UPSC, GPSC, and other competitive examinations.";
+
+$lang['admission_overview_4'] = "Eligible candidates may apply for admission to receive 
+comprehensive guidance, expert mentoring, and access to advanced learning facilities.";
+
+$lang['admission_overview_5'] = "Admission to all training programs is merit-based and 
+follows a transparent evaluation process.";
+
+$lang['more_information'] = "More Information";
+
+$lang['skill_admission_title'] = "Skill Development Centre Admissions";
+$lang['skill_admission_overview_1'] = "The Skill Development Centre offers industry-aligned, practical 
+training programs designed to enhance employability and technical skills.";
+$lang['skill_admission_overview_2'] = "Candidates can apply for a variety of certified skill-based
+courses aimed at building strong career foundations.";
+$lang['skill_admission_overview_3'] = "All admissions are granted purely on merit with complete transparency 
+in assessment and selection.";
+
+// Hostel block
+$lang['hostel_admission_title'] = "Hostel Accommodation Admissions";
+$lang['hostel_admission_overview_1'] = "Sardardham provides safe, modern, and well-managed hostel 
+accommodation for students and youth.Admission to the hostel is based on merit, eligibility criteria, 
+availability, and the internal guidelines of Sardardham.";
+$lang['hostel_admission_overview_2'] = "Hostel allotments are also merit-driven and processed through a 
+transparent, systematic procedure.";
+
+// Eligibility Categories for Hostel Admission
+$lang['hostel_eligibility_title'] = "Eligibility Categories for Hostel Admission";
+
+$lang['hostel_eligibility_intro_1'] = "Hostel accommodation at Sardardham is available to the following 
+categories:";
+$lang['hostel_eligibility_intro_2'] = "Students pursuing higher studies in colleges or universities of 
+Ahmedabad or Gandhinagar and working woman can apply under the following categories:";
+
+$lang['hostel_eligibility_undergraduate_title'] = "Undergraduate Students";
+$lang['hostel_eligibility_undergraduate_desc'] = "Students who have completed Class 12 and taken 
+admission in a degree/under Graduate course.";
+
+$lang['hostel_eligibility_graduate_title'] = "Graduate Students";
+$lang['hostel_eligibility_graduate_desc'] = "Students who have completed graduation and wish to pursue a Master’s or higher-level course.";
+
+$lang['hostel_eligibility_diploma_title'] = "Diploma to Degree Students";
+$lang['hostel_eligibility_diploma_desc'] = "Students who have completed a Diploma and wish to pursue Degree or higher studies above
+Diploma level.";
+
+$lang['hostel_eligibility_working_title'] = "Working Women";
+$lang['hostel_eligibility_working_desc_1'] = "Patidar women employed in any private or public organization 
+in Ahmedabad/Gandhinagar are eligible for accommodation for her limited rooms are made available at the 
+Sardardham Girls’Hostel.";
+$lang['hostel_eligibility_working_desc_2'] = "Facilities are provided on a paid basis, subject to room 
+availability, first come basis and include boarding and lodging.";
+
+$lang['hostel_eligibility_civil_title'] = "Civil Service / Skill Development Students";
+$lang['hostel_eligibility_civil_desc_1'] = "Students applying for the Civil Service Centre or Skill 
+Development Centre should inquire about hostel accommodation during their admission process.";
+$lang['hostel_eligibility_civil_desc_2'] = "The administrative team will guide them based on merit, 
+room availability and applicable guidelines.";
+
+// Admission Process for Hostel Students
+$lang['hostel_process_title'] = "Admission Process for Hostel Students";
+
+$lang['hostel_process_intro_1'] = "A detailed Standard Operating Procedure (SOP) is followed for all hostel admissions.";
+$lang['hostel_process_intro_2'] = "Key steps include:";
+
+$lang['hostel_process_vacancies_title'] = "Announcement of Vacancies";
+$lang['hostel_process_vacancies_desc'] = "Hostel vacancy notifications are published on:";
+$lang['hostel_process_vacancies_point_1'] = "The official website: www.sardardham.org";
+$lang['hostel_process_vacancies_point_2'] = "Official social media platforms (usually after the declaration of Class 12 results).";
+
+$lang['hostel_process_online_title'] = "Online Application Submission";
+$lang['hostel_process_online_point_1'] = "Applications must be submitted online only, before the last date mentioned in the announcement.";
+$lang['hostel_process_online_point_2'] = "Applications after the deadline are not considered.";
+
+$lang['hostel_process_merit_title'] = "Merit-Based Selection";
+$lang['hostel_process_merit_point_1'] = "Admissions are given strictly on merit and subject to available vacancies.";
+$lang['hostel_process_merit_point_2'] = "The merit list / selection list is published on the official website.";
+$lang['hostel_process_merit_point_3'] = "Selected students are also informed individually via SMS/WhatsApp.";
+
+$lang['hostel_process_verification_title'] = "Document Verification & Fee Payment";
+$lang['hostel_process_verification_desc'] = "Selected students must visit the Sardardham Administrative Office within the specified time for:";
+$lang['hostel_process_verification_point_1'] = "Document verification";
+$lang['hostel_process_verification_point_2'] = "Payment of required fees";
+$lang['hostel_process_verification_point_3'] = "Final confirmation of admission";
+
+$lang['hostel_rules_title'] = "Important Rules & Guidelines";
+
+$lang['hostel_rules_point_1'] = "Hostel facilities at Sardardham are not merely residential spaces — they are an ecosystem that
+nurtures discipline, character building, leadership, and holistic development.";
+$lang['hostel_rules_point_2'] = "All residents must strictly follow hostel rules and actively participate in developmental activities.";
+$lang['hostel_rules_point_3'] = "Students must read and understand the Hostel Rules & Code of Conduct before confirming
+admission.";
+$lang['hostel_rules_point_4'] = " Students whose college results are: Failed / Withheld or Below 55% marks, will not be allowed to
+continue their stay, and their admission will be cancelled as per the SOP.";
+
+$lang['apply_for_admission'] = "Apply for Admission";
