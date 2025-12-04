@@ -158,6 +158,7 @@
         <span>
             <?= lang('spibo_difference_2'); ?>
         </span>
+        <br>
         <span>
             <b><?= lang('spibo_difference_3'); ?></b>
         </span>
